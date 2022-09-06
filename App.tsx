@@ -1,12 +1,8 @@
-import { View, Text } from 'react-native';
 import React from 'react';
 
-const App = () => {
-  return (
-    <View>
-      <Text>App</Text>
-    </View>
-  );
-};
+import { Provider } from 'react-redux';
+import { store } from './src/store';
+
+const App = () => <Provider store={store}></Provider>;
 
 export default App;
