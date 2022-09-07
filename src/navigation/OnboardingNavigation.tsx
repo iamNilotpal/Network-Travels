@@ -1,8 +1,16 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import OnboardingScreen from '../screens/Onboarding';
+import { ImageSourcePropType } from 'react-native';
 
-type OnboardingStackParams = {
+import { Images } from '../constants';
+import OnboardingScreen from '../screens/Onboarding';
+import { AuthStackParams } from './AuthNavigation';
+
+export type OnboardingStackParams = {
   FirstOnboardingScreen: undefined;
   SecondOnboardingScreen: undefined;
 };
@@ -10,16 +18,37 @@ type OnboardingStackParams = {
 const OnboardingStack = createNativeStackNavigator<OnboardingStackParams>();
 
 const OnBoardingNavigation = () => {
+  const navigation =
+    useNavigation<
+      NativeStackNavigationProp<OnboardingStackParams & AuthStackParams>
+    >();
+
+  const FIRST_PAGE_PROPS = {
+    img: Images.onboarding_1 as ImageSourcePropType,
+    title: { firstTitle: 'Move', secondTitle: 'with us' },
+    subtitle:
+      'Buy bus tickets easily. You choose the destination and we make the rest.',
+    onNext: () => navigation.navigate('SecondOnboardingScreen'),
+    onSkip: () => navigation.replace('RegistrationScreen'),
+  };
+
+  const SECOND_PAGE_PROPS = {
+    img: Images.onboarding_2 as ImageSourcePropType,
+    title: { firstTitle: 'Enjoy', secondTitle: 'your holiday' },
+    subtitle: 'Enjoy your best holiday experience with NetworkTravels.',
+    onNext: () => navigation.replace('RegistrationScreen'),
+    onSkip: () => navigation.replace('RegistrationScreen'),
+  };
+
   return (
-    <OnboardingStack.Navigator screenOptions={{ headerShown: false }}>
-      <OnboardingStack.Screen
-        name="FirstOnboardingScreen"
-        component={OnboardingScreen}
-      />
-      <OnboardingStack.Screen
-        name="SecondOnboardingScreen"
-        component={OnboardingScreen}
-      />
+    <OnboardingStack.Navigator
+      screenOptions={{ headerShown: false, animation: 'slide_from_right' }}>
+      <OnboardingStack.Screen name="FirstOnboardingScreen">
+        {() => <OnboardingScreen {...FIRST_PAGE_PROPS} />}
+      </OnboardingStack.Screen>
+      <OnboardingStack.Screen name="SecondOnboardingScreen">
+        {() => <OnboardingScreen {...SECOND_PAGE_PROPS} />}
+      </OnboardingStack.Screen>
     </OnboardingStack.Navigator>
   );
 };
