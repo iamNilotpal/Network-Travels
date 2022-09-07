@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: COLORS.white,
-    width: 80,
-    height: 26,
+    width: 70,
+    height: 30,
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 20,
     flexDirection: 'row',
