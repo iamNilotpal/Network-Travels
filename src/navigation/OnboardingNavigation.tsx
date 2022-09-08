@@ -6,9 +6,10 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { ImageSourcePropType } from 'react-native';
 
-import { Images } from '../constants';
+import { COLORS, Images } from '../constants';
 import OnboardingScreen from '../screens/Onboarding';
 import { AuthStackParams } from './AuthNavigation';
+import StatusBar from '../components/common/StatusBar';
 
 export type OnboardingStackParams = {
   FirstOnboardingScreen: undefined;
@@ -41,15 +42,18 @@ const OnBoardingNavigation = () => {
   };
 
   return (
-    <OnboardingStack.Navigator
-      screenOptions={{ headerShown: false, animation: 'slide_from_right' }}>
-      <OnboardingStack.Screen name="FirstOnboardingScreen">
-        {() => <OnboardingScreen {...FIRST_PAGE_PROPS} />}
-      </OnboardingStack.Screen>
-      <OnboardingStack.Screen name="SecondOnboardingScreen">
-        {() => <OnboardingScreen {...SECOND_PAGE_PROPS} />}
-      </OnboardingStack.Screen>
-    </OnboardingStack.Navigator>
+    <>
+      <StatusBar barStyle="dark-content" backgroundColor={COLORS.white} />
+      <OnboardingStack.Navigator
+        screenOptions={{ headerShown: false, animation: 'slide_from_right' }}>
+        <OnboardingStack.Screen name="FirstOnboardingScreen">
+          {() => <OnboardingScreen {...FIRST_PAGE_PROPS} />}
+        </OnboardingStack.Screen>
+        <OnboardingStack.Screen name="SecondOnboardingScreen">
+          {() => <OnboardingScreen {...SECOND_PAGE_PROPS} />}
+        </OnboardingStack.Screen>
+      </OnboardingStack.Navigator>
+    </>
   );
 };
 

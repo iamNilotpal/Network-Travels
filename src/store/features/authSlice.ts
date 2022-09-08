@@ -2,7 +2,17 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '..';
 
 /* Types */
-type State = typeof initialState;
+type State = {
+  otp: string;
+  user: {
+    fullName: string;
+    mobileNumber: string;
+    email?: string;
+  };
+  isActivated: boolean;
+  loading: boolean;
+};
+
 export type UserActions = {
   fullName?: string;
   mobileNumber?: string;
@@ -10,7 +20,7 @@ export type UserActions = {
 };
 
 /* Initial State */
-const initialState = {
+const initialState: State = {
   otp: '',
   user: {
     fullName: '',

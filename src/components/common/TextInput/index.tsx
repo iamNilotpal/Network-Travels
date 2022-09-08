@@ -1,11 +1,11 @@
 import React from 'react';
 import {
+  KeyboardTypeOptions,
+  StyleProp,
   StyleSheet,
   TextInput as NativeTextInput,
   View,
-  StyleProp,
   type ViewStyle,
-  KeyboardTypeOptions,
 } from 'react-native';
 import { COLORS, SIZES } from '../../../constants';
 
@@ -14,8 +14,9 @@ type TextInputProps = {
   value?: string;
   placeholderColor?: string;
   onChangeText?: (text: string) => void;
-  inputStyles?: StyleProp<ViewStyle>;
   keyboardType?: KeyboardTypeOptions;
+  inputStyles?: StyleProp<ViewStyle>;
+  autoFocus?: boolean;
 };
 
 const TextInput: React.FC<TextInputProps> = ({ inputStyles, ...rest }) => {
@@ -23,8 +24,8 @@ const TextInput: React.FC<TextInputProps> = ({ inputStyles, ...rest }) => {
     <View style={[styles.container, inputStyles]}>
       <NativeTextInput
         placeholderTextColor={COLORS.lightGray}
-        {...rest}
         style={{ fontWeight: '600' }}
+        {...rest}
       />
     </View>
   );
@@ -40,7 +41,6 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 10,
   },
-  input: {},
 });
 
 export default TextInput;

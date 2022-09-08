@@ -21,7 +21,8 @@ const RootNavigation = () => {
 
   return (
     <NavigationContainer theme={theme}>
-      {isActivated ? <AppNavigation /> : <AuthNavigation />}
+      {/* <AppNavigation /> */}
+      <AuthNavigation />
     </NavigationContainer>
   );
 };

@@ -16,10 +16,18 @@ import AuthLayout from '../../../layout/AuthLayout';
 import styles from './styles';
 import { COLORS, Icons, Images, SIZES } from '../../../constants';
 import { AuthStackParams } from '../../../navigation/AuthNavigation';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { selectUser, setUser } from '../../../store/features/authSlice';
 
 const RegistrationScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<AuthStackParams>>();
+  const user = useAppSelector(selectUser);
+  const dispatch = useAppDispatch();
+
+  const handleLogin = () => {
+    navigation.navigate('OtpScreen');
+  };
 
   return (
     <AuthLayout>
@@ -30,7 +38,12 @@ const RegistrationScreen = () => {
       </View>
       {/* Input Container */}
       <View style={styles.inputContainer}>
-        <TextInput placeholder="Full name" inputStyles={{ marginBottom: 8 }} />
+        <TextInput
+          placeholder="Full name"
+          inputStyles={{ marginBottom: 8 }}
+          autoFocus
+          onChangeText={text => dispatch(setUser({ ...user, fullName: text }))}
+        />
         <TextInput
           placeholder="Mobile number"
           inputStyles={{ marginBottom: 8 }}
@@ -43,17 +56,16 @@ const RegistrationScreen = () => {
       </View>
       {/* Actions Container */}
       <View style={styles.actionsContainer}>
-        <PrimaryButton text="REGISTRATION" />
+        <PrimaryButton text="REGISTRATION" onPress={handleLogin} />
         <View style={styles.actions}>
           <BodyRegular
             text="Already have an account?"
-            textStyles={{ color: COLORS.black, fontWeight: '500', opacity: 1 }}
+            textStyles={{ fontWeight: '500', opacity: 1 }}
           />
           <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
             <BodyRegular
               text="LOGIN"
               textStyles={{
-                color: COLORS.black,
                 fontWeight: '700',
                 opacity: 1,
                 marginLeft: 4,

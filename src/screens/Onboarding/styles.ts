@@ -34,7 +34,6 @@ export default StyleSheet.create({
   skip: {
     fontSize: 12,
     fontWeight: '700',
-    color: COLORS.black,
     alignSelf: 'flex-end',
     marginRight: 58,
     marginTop: 20,

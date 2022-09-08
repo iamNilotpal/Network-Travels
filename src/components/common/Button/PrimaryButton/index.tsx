@@ -1,19 +1,29 @@
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import React from 'react';
+import {
+  StyleProp,
+  StyleSheet,
+  TouchableOpacity,
+  ViewStyle,
+} from 'react-native';
 import { COLORS, SIZES } from '../../../../constants';
 import BodyRegular from '../../Text/Body/BodyRegular';
 
 type PrimaryButtonProps = {
   text: string;
-  onPress?: () => void;
+  onPress: () => void;
+  btnStyles?: StyleProp<ViewStyle>;
 };
 
-const PrimaryButton: React.FC<PrimaryButtonProps> = ({ text, onPress }) => {
+const PrimaryButton: React.FC<PrimaryButtonProps> = ({
+  text,
+  onPress,
+  btnStyles,
+}) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       onPress={onPress}
-      style={styles.container}>
+      style={[styles.container, btnStyles]}>
       <BodyRegular
         text={text}
         textStyles={{
@@ -36,7 +46,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     elevation: 10,
   },
-  text: {},
 });
 
 export default PrimaryButton;

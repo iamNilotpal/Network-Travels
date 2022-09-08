@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   text: {
     ...FONTS.body3,
     fontWeight: '400',
-    color: COLORS.black,
     opacity: 0.5,
   },
 });

@@ -4,14 +4,13 @@ import {
   Image,
   ImageSourcePropType,
   StyleProp,
-  TextStyle,
-  StyleSheet,
   Text,
+  TextStyle,
+  TouchableOpacity,
   View,
   type ViewStyle,
-  TouchableOpacity,
 } from 'react-native';
-import { COLORS } from '../../../constants';
+import styles from './styles';
 
 interface AuthHeaderProps extends NativeStackHeaderProps {
   headerStyles?: StyleProp<ViewStyle>;
@@ -19,6 +18,26 @@ interface AuthHeaderProps extends NativeStackHeaderProps {
   text: string;
   img: ImageSourcePropType;
 }
+
+type HeaderProps = {
+  textStyle?: StyleProp<TextStyle>;
+  text: string;
+  img: ImageSourcePropType;
+};
+
+const RightHeader: React.FC<HeaderProps> = ({ textStyle, text, img }) => (
+  <>
+    <Text style={[styles.text, textStyle]}>{text}</Text>
+    <Image source={img} style={styles.img} />
+  </>
+);
+
+const LeftHeader: React.FC<HeaderProps> = ({ textStyle, text, img }) => (
+  <>
+    <Image source={img} style={styles.img} />
+    <Text style={[styles.text, textStyle]}>{text}</Text>
+  </>
+);
 
 const AuthHeader: React.FC<AuthHeaderProps> = ({
   headerStyles,
@@ -34,33 +53,18 @@ const AuthHeader: React.FC<AuthHeaderProps> = ({
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={[styles.header, headerStyles]} onPress={onPress}>
-        <Text style={textStyle}>{text}</Text>
-        <Image source={img} style={styles.img} />
+      <TouchableOpacity
+        style={[styles.header, headerStyles]}
+        onPress={onPress}
+        activeOpacity={0.8}>
+        {text === 'Skip' ? (
+          <RightHeader text={text} img={img} textStyle={textStyle} />
+        ) : (
+          <LeftHeader text={text} img={img} textStyle={textStyle} />
+        )}
       </TouchableOpacity>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: COLORS.primary,
-  },
-  header: {
-    backgroundColor: COLORS.white,
-    width: 70,
-    height: 30,
-    borderTopLeftRadius: 20,
-    borderBottomLeftRadius: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 15,
-    alignSelf: 'flex-end',
-  },
-  img: {
-    marginTop: 2,
-  },
-});
 
 export default AuthHeader;

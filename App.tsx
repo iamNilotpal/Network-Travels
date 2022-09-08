@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import RootNavigation from './src/navigation/RootNavigation';
 import { store } from './src/store';
 
+console.log(store.getState());
+
 const App = () => (
   <Provider store={store}>
     <RootNavigation />

@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   text: {
     ...FONTS.h1,
     fontWeight: '700',
-    color: COLORS.black,
   },
 });
 
