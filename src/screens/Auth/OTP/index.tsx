@@ -24,7 +24,7 @@ import styles from './styles';
 const OTPInputs = new Array(4).fill('');
 
 const OtpScreen = () => {
-  const [otp, setOtp] = useState<string | undefined>();
+  const [otp, setOtp] = useState<string>('');
   const [focusedIndex, setFocusedIndex] = useState(0);
   const dispatch = useAppDispatch();
 
@@ -32,9 +32,9 @@ const OtpScreen = () => {
     if (focusedIndex === OTPInputs.length) Keyboard.dismiss();
   }, [focusedIndex]);
 
-  const handleOtpChange = (otp: string, index: number) => {
-    setOtp(prev => prev + otp);
-    setFocusedIndex(otp === '' ? index - 1 : index + 1);
+  const handleOtpChange = (data: string, index: number) => {
+    setOtp(prev => prev + data);
+    setFocusedIndex(data === '' ? index - 1 : index + 1);
   };
 
   const handleVerifyOtp = () => {
