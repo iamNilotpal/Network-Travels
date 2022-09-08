@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import phone from 'phone';
 import React from 'react';
 import {
   Image,
@@ -13,11 +14,14 @@ import BodyRegular from '../../../components/common/Text/Body/BodyRegular';
 import HeadingBold from '../../../components/common/Text/Heading/Bold';
 import TextInput from '../../../components/common/TextInput';
 import AuthLayout from '../../../layout/AuthLayout';
-import styles from './styles';
-import { COLORS, Icons, Images, SIZES } from '../../../constants';
+
+import { Icons, Images, SIZES } from '../../../constants';
 import { AuthStackParams } from '../../../navigation/AuthNavigation';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import styles from './styles';
+
 import { selectUser, setUser } from '../../../store/features/authSlice';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import showAlert from '../../../utils/showAlert';
 
 const RegistrationScreen = () => {
   const navigation =
@@ -25,8 +29,15 @@ const RegistrationScreen = () => {
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
 
-  const handleLogin = () => {
-    navigation.navigate('OtpScreen');
+  const handleRegistration = () => {
+    if (user.fullName && user.mobileNumber.length) {
+      const { isValid } = phone(user.mobileNumber, {
+        country: 'IND',
+      });
+      if (!isValid)
+        return showAlert('Registration Error', 'Invalid Phone Number');
+      navigation.navigate('OtpScreen');
+    } else showAlert('Registration Error', 'All fields are required.');
   };
 
   return (
@@ -42,21 +53,25 @@ const RegistrationScreen = () => {
           placeholder="Full name"
           inputStyles={{ marginBottom: 8 }}
           autoFocus
-          onChangeText={text => dispatch(setUser({ ...user, fullName: text }))}
+          onChangeText={fullName => dispatch(setUser({ ...user, fullName }))}
         />
         <TextInput
           placeholder="Mobile number"
           inputStyles={{ marginBottom: 8 }}
           keyboardType="numeric"
+          onChangeText={mobileNumber =>
+            dispatch(setUser({ ...user, mobileNumber }))
+          }
         />
         <TextInput
           placeholder="Email (optional)"
           keyboardType="email-address"
+          onChangeText={email => dispatch(setUser({ ...user, email }))}
         />
       </View>
       {/* Actions Container */}
       <View style={styles.actionsContainer}>
-        <PrimaryButton text="REGISTRATION" onPress={handleLogin} />
+        <PrimaryButton text="REGISTRATION" onPress={handleRegistration} />
         <View style={styles.actions}>
           <BodyRegular
             text="Already have an account?"
@@ -96,17 +111,8 @@ const RegistrationScreen = () => {
             }}
           />
         </TouchableOpacity>
+        <Image source={Images.bus as ImageSourcePropType} style={styles.bus} />
       </View>
-      <Image source={Images.bus as ImageSourcePropType} style={styles.bus} />
-      <View
-        style={{
-          width: 140,
-          height: 3,
-          backgroundColor: COLORS.black,
-          bottom: 20,
-          alignSelf: 'center',
-        }}
-      />
     </AuthLayout>
   );
 };

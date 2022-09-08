@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     opacity: 0.2,
-    top: 100,
+    top: 120,
     left: 30,
   },
 });

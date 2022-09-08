@@ -49,6 +49,6 @@ export default StyleSheet.create({
 
   bus: {
     alignSelf: 'center',
-    bottom: 50,
+    marginTop: 70,
   },
 });

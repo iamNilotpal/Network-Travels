@@ -12,18 +12,21 @@ type PrimaryButtonProps = {
   text: string;
   onPress: () => void;
   btnStyles?: StyleProp<ViewStyle>;
+  disabled?: boolean;
 };
 
 const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   text,
   onPress,
   btnStyles,
+  disabled,
 }) => {
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
+      activeOpacity={0.7}
       onPress={onPress}
-      style={[styles.container, btnStyles]}>
+      disabled={disabled}
+      style={[styles.container, btnStyles, { opacity: disabled ? 0.6 : 1 }]}>
       <BodyRegular
         text={text}
         textStyles={{

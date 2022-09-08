@@ -1,5 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import {
   Image,
@@ -15,7 +13,12 @@ import OtpInput from '../../../components/common/OtpInput';
 import BodyRegular from '../../../components/common/Text/Body/BodyRegular';
 import { Images } from '../../../constants';
 import AuthLayout from '../../../layout/AuthLayout';
-import { AppStackParams } from '../../../navigation/AppNavigation';
+import {
+  setActivated,
+  setOtp as storeSetOtp,
+} from '../../../store/features/authSlice';
+import { useAppDispatch } from '../../../store/hooks';
+import showAlert from '../../../utils/showAlert';
 import styles from './styles';
 
 const OTPInputs = new Array(4).fill('');
@@ -23,16 +26,22 @@ const OTPInputs = new Array(4).fill('');
 const OtpScreen = () => {
   const [otp, setOtp] = useState<string | undefined>();
   const [focusedIndex, setFocusedIndex] = useState(0);
-  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (focusedIndex === OTPInputs.length) Keyboard.dismiss();
   }, [focusedIndex]);
 
   const handleOtpChange = (otp: string, index: number) => {
-    console.log({ otp, index });
     setOtp(prev => prev + otp);
     setFocusedIndex(otp === '' ? index - 1 : index + 1);
+  };
+
+  const handleVerifyOtp = () => {
+    if (!otp || otp.length < 4)
+      return showAlert('OTP Validation Error', 'Enter a valid OTP.');
+    dispatch(storeSetOtp(otp));
+    dispatch(setActivated(true));
   };
 
   return (
@@ -59,10 +68,7 @@ const OtpScreen = () => {
         ))}
       </View>
       <View style={styles.confirmBtn}>
-        <PrimaryButton
-          text="VERIFY"
-          onPress={() => navigation.replace('Home')}
-        />
+        <PrimaryButton text="VERIFY" onPress={handleVerifyOtp} />
         <View style={styles.resendActions}>
           <BodyRegular text="Didn't receive OTP?" textStyles={{ opacity: 1 }} />
           <TouchableOpacity>

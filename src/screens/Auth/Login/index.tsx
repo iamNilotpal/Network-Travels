@@ -10,10 +10,26 @@ import { Images } from '../../../constants';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParams } from '../../../navigation/AuthNavigation';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { selectUser, setUser } from '../../../store/features/authSlice';
+import showAlert from '../../../utils/showAlert';
+import phone from 'phone';
 
 const LoginScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<AuthStackParams>>();
+  const user = useAppSelector(selectUser);
+  const dispatch = useAppDispatch();
+
+  const handleLogin = () => {
+    if (!user.mobileNumber)
+      return showAlert('LOGIN ERROR', 'Enter valid phone number.');
+
+    const { isValid } = phone(user.mobileNumber, { country: 'IND' });
+    if (!isValid) return showAlert('Login Error', 'Enter valid phone number.');
+
+    navigation.navigate('OtpScreen');
+  };
 
   return (
     <AuthLayout>
@@ -26,10 +42,13 @@ const LoginScreen = () => {
           autoFocus
           placeholder="Mobile number"
           keyboardType="numeric"
+          onChangeText={mobileNumber =>
+            dispatch(setUser({ ...user, mobileNumber }))
+          }
         />
         <PrimaryButton
           text="LOGIN"
-          onPress={() => navigation.navigate('OtpScreen')}
+          onPress={handleLogin}
           btnStyles={{ marginTop: 20 }}
         />
       </View>
