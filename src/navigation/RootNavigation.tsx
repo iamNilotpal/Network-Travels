@@ -6,7 +6,6 @@ import { selectActivated } from '../store/features/authSlice';
 import { useAppSelector } from '../store/hooks';
 
 import AppNavigation from './AppNavigation';
-import AuthNavigation from './AuthNavigation';
 
 const theme = {
   ...DefaultTheme,
@@ -21,7 +20,9 @@ const RootNavigation = () => {
 
   return (
     <NavigationContainer theme={theme}>
-      {isActivated ? <AppNavigation /> : <AuthNavigation />}
+      {/* {isActivated ? <AppNavigation /> : <AuthNavigation />} */}
+      <AppNavigation />
+      {/* <AuthNavigation /> */}
     </NavigationContainer>
   );
 };
