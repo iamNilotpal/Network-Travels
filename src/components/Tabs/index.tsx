@@ -38,7 +38,6 @@ const Tabs: React.FC<TabsProps> = ({
         <BodyRegular
           text={firstText}
           textStyles={{
-            opacity: 1,
             color: selected === firstText ? COLORS.black : COLORS.darkGray,
             fontWeight: selected === firstText ? '700' : '500',
           }}
@@ -58,7 +57,6 @@ const Tabs: React.FC<TabsProps> = ({
           textStyles={{
             color: selected === secondText ? COLORS.black : COLORS.darkGray,
             fontWeight: selected === secondText ? '700' : '500',
-            opacity: 1,
           }}
         />
       </Pressable>

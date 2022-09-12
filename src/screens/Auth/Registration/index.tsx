@@ -75,14 +75,13 @@ const RegistrationScreen = () => {
         <View style={styles.actions}>
           <BodyRegular
             text="Already have an account?"
-            textStyles={{ fontWeight: '500', opacity: 1 }}
+            textStyles={{ fontWeight: '500' }}
           />
           <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
             <BodyRegular
               text="LOGIN"
               textStyles={{
                 fontWeight: '700',
-                opacity: 1,
                 marginLeft: 4,
               }}
             />
@@ -95,7 +94,7 @@ const RegistrationScreen = () => {
           <View style={styles.bar} />
           <BodyRegular
             text="or sign up with"
-            textStyles={{ marginHorizontal: 8, fontWeight: '500', opacity: 1 }}
+            textStyles={{ marginHorizontal: 8, fontWeight: '500' }}
           />
           <View style={styles.bar} />
         </View>
@@ -104,7 +103,6 @@ const RegistrationScreen = () => {
           <BodyRegular
             text="Google"
             textStyles={{
-              opacity: 1,
               fontWeight: '600',
               fontSize: SIZES.body2,
               marginLeft: 7,

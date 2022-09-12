@@ -70,11 +70,11 @@ const OtpScreen = () => {
       <View style={styles.confirmBtn}>
         <PrimaryButton text="VERIFY" onPress={handleVerifyOtp} />
         <View style={styles.resendActions}>
-          <BodyRegular text="Didn't receive OTP?" textStyles={{ opacity: 1 }} />
+          <BodyRegular text="Didn't receive OTP?" />
           <TouchableOpacity>
             <BodyRegular
               text="RESEND"
-              textStyles={{ opacity: 1, fontWeight: '700', marginLeft: 4 }}
+              textStyles={{ fontWeight: '700', marginLeft: 4 }}
             />
           </TouchableOpacity>
         </View>

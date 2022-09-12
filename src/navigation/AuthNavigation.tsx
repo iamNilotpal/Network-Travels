@@ -1,5 +1,7 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NativeStackHeaderProps } from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  NativeStackHeaderProps,
+} from '@react-navigation/native-stack';
 import React from 'react';
 import { ImageSourcePropType } from 'react-native';
 import StatusBar from '../components/common/StatusBar';

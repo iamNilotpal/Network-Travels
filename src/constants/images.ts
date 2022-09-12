@@ -6,6 +6,9 @@ import onboarding_2 from '../assets/illustrations/onboarding_2.png';
 import logo from '../assets/images/logo.png';
 import group1 from '../assets/images/group1.png';
 import group2 from '../assets/images/group2.png';
+import line1 from '../assets/images/line1.png';
+import line2 from '../assets/images/line2.png';
+import line3 from '../assets/images/line3.png';
 
 export default {
   bus,
@@ -16,4 +19,7 @@ export default {
   logo,
   group1,
   group2,
+  line1,
+  line2,
+  line3,
 };

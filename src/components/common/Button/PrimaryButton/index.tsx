@@ -33,7 +33,6 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
           color: '#fff',
           fontWeight: 'bold',
           textAlign: 'center',
-          opacity: 1,
         }}
       />
     </TouchableOpacity>

@@ -1,7 +1,10 @@
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 
 import { COLORS } from '../../../constants';
+import { HomeStackParams } from '../../../navigation/HomeNavigation';
 import PrimaryButton from '../../common/Button/PrimaryButton';
 import TextInput from '../../common/TextInput';
 import Dash from './Dash';
@@ -13,6 +16,9 @@ type SearchBusFormProps = {
 };
 
 const SearchBusForm: React.FC<SearchBusFormProps> = ({ containerStyles }) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+
   return (
     <View style={[styles.container, containerStyles]}>
       <View style={styles.formContainer}>
@@ -56,7 +62,7 @@ const SearchBusForm: React.FC<SearchBusFormProps> = ({ containerStyles }) => {
       </View>
       <PrimaryButton
         text="FIND A BUS"
-        onPress={() => {}}
+        onPress={() => navigation.navigate('BusTypes')}
         btnStyles={{ marginTop: 30, width: 320 }}
       />
     </View>

@@ -1,11 +1,25 @@
-import { View, Image, ImageSourcePropType, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { COLORS, Icons, Images } from '../../../constants';
+import { HomeStackParams } from '../../../navigation/HomeNavigation';
 
 const HomeHeader = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+
   return (
     <View style={styles.container}>
-      <Image source={Icons.hamburger as ImageSourcePropType} />
+      <TouchableOpacity onPress={() => navigation.navigate('MenuBar')}>
+        <Image source={Icons.hamburger as ImageSourcePropType} />
+      </TouchableOpacity>
       <Image
         source={Images.logo as ImageSourcePropType}
         resizeMode="contain"

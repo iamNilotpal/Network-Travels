@@ -1,3 +1,5 @@
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import {
   Image,
@@ -15,6 +17,8 @@ import { Images } from '../../constants';
 import styles from './styles';
 
 const HomeScreen = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<{}>>();
+
   return (
     <Pressable onPress={() => Keyboard.dismiss()}>
       <HomeHeader />
