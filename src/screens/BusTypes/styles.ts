@@ -10,6 +10,5 @@ export default StyleSheet.create({
 
   buses: {
     paddingHorizontal: 20,
-    marginTop: 10,
   },
 });

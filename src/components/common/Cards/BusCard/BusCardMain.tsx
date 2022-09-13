@@ -12,8 +12,8 @@ type BusCardMainProps = {
 };
 
 const BusCardMain: React.FC<BusCardMainProps> = ({ bus }) => {
-  const departureTime = bus.departure.split(' ')[1];
-  const arrivalTime = bus.arrival.split(' ')[1];
+  const departureTime = bus.departure.time;
+  const arrivalTime = bus.arrival.time;
 
   return (
     <View style={styles.mainContent}>

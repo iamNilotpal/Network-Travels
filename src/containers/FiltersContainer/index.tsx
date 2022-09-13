@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { FILTER_DATA } from '../../constants/data';
 import FilterScreen from '../../screens/Filter';
@@ -8,9 +8,14 @@ import ArrowLeft from '../../components/Icons/ArrowLeft';
 import FilterBottomNav from '../../components/BottomNav/FilterBottomNav';
 
 const FiltersContainer = () => {
+  const [filters, setFilters] = useState([]);
   const Departure_Data = FILTER_DATA.departure;
   const Bus_Types = FILTER_DATA.busTypes;
   const Arrival_Data = FILTER_DATA.arrival;
+
+  const handleFilter = (item: any) => {
+    console.log({ item });
+  };
 
   return (
     <>
@@ -18,9 +23,9 @@ const FiltersContainer = () => {
         <ArrowLeft />
       </OtherHeader>
       <View>
-        <FilterScreen data={Departure_Data} />
-        <FilterScreen data={Bus_Types} />
-        <FilterScreen data={Arrival_Data} />
+        <FilterScreen data={Departure_Data} onFilter={handleFilter} />
+        <FilterScreen data={Bus_Types} onFilter={handleFilter} />
+        <FilterScreen data={Arrival_Data} onFilter={handleFilter} />
       </View>
       <FilterBottomNav />
     </>

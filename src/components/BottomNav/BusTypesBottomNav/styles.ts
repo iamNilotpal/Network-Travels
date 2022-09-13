@@ -3,6 +3,7 @@ import { COLORS } from '../../../constants';
 
 export default StyleSheet.create({
   container: {
+    position: 'absolute',
     bottom: 10,
     width: 372,
     height: 58,
