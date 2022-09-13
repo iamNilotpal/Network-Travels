@@ -19,4 +19,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
   },
+
+  divider: {
+    width: '100%',
+    height: 1,
+    marginVertical: 20,
+    backgroundColor: COLORS.black,
+    opacity: 0.5,
+  },
 });

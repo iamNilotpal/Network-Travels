@@ -98,3 +98,69 @@ export const BUSES = [
     rest: 'Mangaldai',
   },
 ];
+
+export const FILTER_DATA = {
+  departure: {
+    title: 'DEPARTURE TIME',
+    data: [
+      {
+        text: 'Before 6 AM',
+        count: ' 12',
+      },
+      {
+        text: '6 AM to 12 PM',
+        count: '06',
+      },
+      {
+        text: '12 PM to 6 PM',
+        count: '08',
+      },
+      {
+        text: 'After 6 PM',
+        count: '10',
+      },
+    ],
+  },
+  busTypes: {
+    title: 'BUS TYPES',
+    data: [
+      {
+        text: 'AC',
+        count: '24',
+      },
+      {
+        text: 'NON-AC',
+        count: '13',
+      },
+      {
+        text: 'SLEEPER AC',
+        count: '20',
+      },
+      {
+        text: 'SLEEPER NON-AC',
+        count: '18',
+      },
+    ],
+  },
+  arrival: {
+    title: 'ARRIVAL TIME',
+    data: [
+      {
+        text: 'Before 6 AM',
+        count: '12',
+      },
+      {
+        text: '6 AM to 12 PM',
+        count: '06',
+      },
+      {
+        text: '12 PM to 6 PM',
+        count: '08',
+      },
+      {
+        text: 'After 6 PM',
+        count: '10',
+      },
+    ],
+  },
+};

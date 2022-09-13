@@ -26,11 +26,6 @@ const BottomNavigation = () => {
       tabBarOptions={{
         activeBackgroundColor: COLORS.white,
         activeTintColor: COLORS.black,
-        // tabStyle: {
-        //   marginBottom: 15,
-        //   marginHorizontal: 20,
-        //   borderRadius: 50,
-        // },
       }}
       appearance={{
         tabBarBackground: COLORS.primary,

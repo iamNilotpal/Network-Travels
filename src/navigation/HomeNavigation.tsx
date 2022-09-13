@@ -6,6 +6,8 @@ import StatusBar from '../components/common/StatusBar';
 import { COLORS } from '../constants';
 import BusesContainer from '../containers/BusesContainer';
 import MenuBarScreen from '../screens/MenuBar';
+import FilterScreen from '../screens/Filter';
+import FiltersContainer from '../containers/FiltersContainer';
 
 export type HomeStackParams = {
   Bottom: undefined;
@@ -17,6 +19,7 @@ export type HomeStackParams = {
   OrderSummer: undefined;
   Payment: undefined;
   MenuBar: undefined;
+  Filter: undefined;
 };
 
 const HomeStack = createNativeStackNavigator<HomeStackParams>();
@@ -36,6 +39,11 @@ const HomeNavigation = () => {
           name="MenuBar"
           component={MenuBarScreen}
           options={{ animation: 'slide_from_left' }}
+        />
+        <HomeStack.Screen
+          name="Filter"
+          component={FiltersContainer}
+          options={{ animation: 'slide_from_bottom' }}
         />
       </HomeStack.Navigator>
     </>

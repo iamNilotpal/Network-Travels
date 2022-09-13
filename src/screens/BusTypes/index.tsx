@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
+import BusTypesBottomNav from '../../components/BottomNav/BusTypesBottomNav';
 import BusCard from '../../components/common/Cards/BusCard';
 import BusCountCard, {
   BusType,
@@ -49,11 +50,12 @@ const BusTypes: React.FC<BusTypesProps> = ({
       <View style={{ marginTop: 13 }}>
         <LineToDisplay width={700} />
       </View>
-      <ScrollView style={styles.buses}>
+      <ScrollView style={styles.buses} showsVerticalScrollIndicator={false}>
         {data?.map(bus => (
           <BusCard bus={bus} key={bus.id} />
         ))}
       </ScrollView>
+      <BusTypesBottomNav />
     </>
   );
 };

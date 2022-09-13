@@ -11,6 +11,7 @@ export const MENU_BAR_DATA = [
   {
     Icon: Bookings,
     text: 'Bookings',
+    screen: 'Bookings',
   },
   {
     Icon: Wallet,
@@ -23,6 +24,7 @@ export const MENU_BAR_DATA = [
   {
     Icon: CancelTicket,
     text: 'Cancel ticket',
+    screen: 'Bookings',
   },
   {
     Icon: HelpSupport,
