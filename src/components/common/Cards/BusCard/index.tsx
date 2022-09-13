@@ -1,20 +1,29 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import BusCardFooter from './BusCardFooter';
 import BusCardHeader from './BusCardHeader';
 import BusCardMain from './BusCardMain';
 import styles from './styles';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { HomeStackParams } from '../../../../navigation/HomeNavigation';
 
 const BusCard = (props: any) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.9}
+      onPress={() => navigation.navigate('SeatBooking', { ...props })}>
       <View style={styles.wrapper}>
         <BusCardHeader />
         <BusCardMain {...props} />
       </View>
       <BusCardFooter />
-    </View>
+    </TouchableOpacity>
   );
 };
 

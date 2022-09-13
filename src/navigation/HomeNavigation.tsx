@@ -1,18 +1,17 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomNavigation from './BottomNavigation';
-import BusTypes from '../screens/BusTypes';
 import StatusBar from '../components/common/StatusBar';
 import { COLORS } from '../constants';
 import BusesContainer from '../containers/BusesContainer';
 import MenuBarScreen from '../screens/MenuBar';
-import FilterScreen from '../screens/Filter';
 import FiltersContainer from '../containers/FiltersContainer';
+import SeatBooking from '../screens/SeatBooking';
 
 export type HomeStackParams = {
   Bottom: undefined;
   BusTypes: undefined;
-  SetBooking: undefined;
+  SeatBooking: { bus: {} };
   FareDetails: undefined;
   PickupDrop: undefined;
   PassengerDetails: undefined;
@@ -45,6 +44,7 @@ const HomeNavigation = () => {
           component={FiltersContainer}
           options={{ animation: 'slide_from_bottom' }}
         />
+        <HomeStack.Screen name="SeatBooking" component={SeatBooking} />
       </HomeStack.Navigator>
     </>
   );

@@ -194,3 +194,256 @@ export const FILTER_DATA = {
     ],
   },
 };
+
+export const LOWER_BERTH = [
+  {
+    text: '1',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '2',
+    visible: true,
+  },
+  {
+    text: '3',
+    visible: true,
+  },
+  {
+    text: '4',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '5',
+    visible: true,
+  },
+  {
+    text: '6',
+    visible: true,
+  },
+  {
+    text: '7',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '8',
+    visible: true,
+  },
+  {
+    text: '9',
+    visible: true,
+  },
+  {
+    text: '10',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '11',
+    visible: true,
+  },
+  {
+    text: '12',
+    visible: true,
+  },
+  {
+    text: '13',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '14',
+    visible: true,
+  },
+  {
+    text: '15',
+    visible: true,
+  },
+  {
+    text: '16',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '17',
+    visible: true,
+  },
+  {
+    text: '18',
+    visible: true,
+  },
+  {
+    text: '19',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '20',
+    visible: true,
+  },
+  {
+    text: '21',
+    visible: true,
+  },
+
+  {
+    text: '22',
+    visible: true,
+  },
+
+  {
+    text: '',
+    visible: false,
+  },
+
+  {
+    text: '23',
+    visible: true,
+  },
+
+  {
+    text: '24',
+    visible: true,
+  },
+
+  {
+    text: '25',
+    visible: true,
+  },
+
+  {
+    text: '',
+    visible: false,
+  },
+
+  {
+    text: '26',
+    visible: true,
+  },
+  {
+    text: '27',
+    visible: true,
+  },
+  {
+    text: '28',
+    visible: true,
+  },
+  {
+    text: '29',
+    visible: true,
+  },
+  {
+    text: '30',
+    visible: true,
+  },
+  {
+    text: '31',
+    visible: true,
+  },
+];
+
+export const UPPER_BERTH = [
+  {
+    text: '1',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '2',
+    visible: true,
+  },
+  {
+    text: '3',
+    visible: true,
+  },
+  {
+    text: '4',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '5',
+    visible: true,
+  },
+  {
+    text: '6',
+    visible: true,
+  },
+  {
+    text: '7',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '8',
+    visible: true,
+  },
+  {
+    text: '9',
+    visible: true,
+  },
+  {
+    text: '10',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '11',
+    visible: true,
+  },
+  {
+    text: '12',
+    visible: true,
+  },
+  {
+    text: '13',
+    visible: true,
+  },
+  {
+    text: '',
+    visible: false,
+  },
+  {
+    text: '14',
+    visible: true,
+  },
+  {
+    text: '15',
+    visible: true,
+  },
+];
