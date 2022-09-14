@@ -12,7 +12,7 @@ import {
 import HeadingBold from '../../components/common/Text/Heading/Bold';
 import SearchBusForm from '../../components/Forms/SearchBusForm';
 import HomeHeader from '../../components/Header/HomeHeader';
-import Tabs from '../../components/Tabs';
+import Tabs from '../../components/Tabs/AuthTabs';
 import { Images } from '../../constants';
 import styles from './styles';
 
@@ -37,8 +37,11 @@ const HomeScreen = () => {
       </View>
       <SearchBusForm containerStyles={{ marginTop: 65, alignSelf: 'center' }} />
       <View style={styles.details}>
-        <Image source={Images.group1 as ImageSourcePropType} />
-        <Image source={Images.group2 as ImageSourcePropType} />
+        <Image
+          source={Images.group as ImageSourcePropType}
+          resizeMode="center"
+          style={{ width: '100%', height: 140 }}
+        />
       </View>
     </Pressable>
   );

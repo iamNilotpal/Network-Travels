@@ -1,7 +1,8 @@
 import { useRoute } from '@react-navigation/native';
 import React from 'react';
-import { ScrollView, View, Image, ImageSourcePropType } from 'react-native';
+import { Image, ImageSourcePropType, ScrollView, View } from 'react-native';
 import PaymentBottomNav from '../../components/BottomNav/PaymentBottomNav';
+import { useNavigation } from '@react-navigation/native';
 
 import LowerBerth from '../../components/BusBerths/LowerBerth';
 import UpperBerth from '../../components/BusBerths/UpperBerth';
@@ -9,17 +10,26 @@ import BodyRegular from '../../components/common/Text/Body/BodyRegular';
 import BookingHeader from '../../components/Header/BookingHeader';
 import Hygiene from '../../components/Icons/Hygiene';
 import Safety from '../../components/Icons/Safety';
+import BookingsTab from '../../components/Tabs/BookingsTab';
 import { Images } from '../../constants';
 import styles from './styles';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { HomeStackParams } from '../../navigation/HomeNavigation';
 
 const SeatBooking = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
   const { params } = useRoute();
+  // @ts-ignore
   const bus = params?.bus;
 
   return (
     <>
       <BookingHeader />
-      <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 80 }}
+        showsVerticalScrollIndicator={false}>
+        <BookingsTab containerStyles={{ marginTop: 25 }} />
         <View style={styles.berths}>
           <LowerBerth />
           <UpperBerth />
@@ -58,7 +68,11 @@ const SeatBooking = () => {
           />
         </View>
       </ScrollView>
-      <PaymentBottomNav price={100} seats={3} onPress={() => {}} />
+      <PaymentBottomNav
+        price={100}
+        seats={3}
+        onPress={() => navigation.navigate('PickupDrop')}
+      />
     </>
   );
 };

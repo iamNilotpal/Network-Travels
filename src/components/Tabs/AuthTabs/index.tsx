@@ -1,8 +1,8 @@
 import { View, Pressable, StyleProp, ViewStyle } from 'react-native';
 import React, { useState } from 'react';
 import styles from './styles';
-import BodyRegular from '../common/Text/Body/BodyRegular';
-import { COLORS } from '../../constants';
+import BodyRegular from '../../common/Text/Body/BodyRegular';
+import { COLORS } from '../../../constants';
 
 type TabsProps = {
   containerStyles?: StyleProp<ViewStyle>;

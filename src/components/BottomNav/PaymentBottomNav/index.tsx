@@ -1,6 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
-import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { COLORS } from '../../../constants';
+import {
+  Pressable,
+  StyleProp,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
+import { HomeStackParams } from '../../../navigation/HomeNavigation';
 
 import BodyRegular from '../../common/Text/Body/BodyRegular';
 import ArrowRight from '../../Icons/ArrowRight';
@@ -23,6 +31,9 @@ const PaymentBottomNav: React.FC<PaymentBottomNavProps> = ({
   onPress,
   btnText = 'NEXT',
 }) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={{ marginLeft: 10 }}>
@@ -34,9 +45,11 @@ const PaymentBottomNav: React.FC<PaymentBottomNavProps> = ({
             text={price.toFixed(2).toString()}
             textStyles={{ fontSize: 22, fontWeight: '700', marginLeft: 7 }}
           />
-          <View style={styles.arrowUp}>
+          <Pressable
+            style={styles.arrowUp}
+            onPress={() => navigation.navigate('FareDetails')}>
             <ArrowUp />
-          </View>
+          </Pressable>
         </View>
         <BodyRegular
           text={`For ${seats} seats`}

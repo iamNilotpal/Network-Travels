@@ -7,6 +7,8 @@ import BusesContainer from '../containers/BusesContainer';
 import MenuBarScreen from '../screens/MenuBar';
 import FiltersContainer from '../containers/FiltersContainer';
 import SeatBooking from '../screens/SeatBooking';
+import FareDetailsScreen from '../screens/FareDetails';
+import PickupDropPointsScreen from '../screens/Pickup&DropPoints';
 
 export type HomeStackParams = {
   Bottom: undefined;
@@ -45,6 +47,11 @@ const HomeNavigation = () => {
           options={{ animation: 'slide_from_bottom' }}
         />
         <HomeStack.Screen name="SeatBooking" component={SeatBooking} />
+        <HomeStack.Screen name="FareDetails" component={FareDetailsScreen} />
+        <HomeStack.Screen
+          name="PickupDrop"
+          component={PickupDropPointsScreen}
+        />
       </HomeStack.Navigator>
     </>
   );

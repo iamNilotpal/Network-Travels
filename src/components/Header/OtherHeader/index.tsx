@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     height: 85,
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 15,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     shadowColor: COLORS.black,
@@ -42,8 +42,9 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    marginRight: 90,
+    position: 'absolute',
     padding: 8,
+    left: 25,
   },
 });
 

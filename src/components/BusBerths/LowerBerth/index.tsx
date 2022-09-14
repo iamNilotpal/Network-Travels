@@ -32,14 +32,14 @@ const Seat: React.FC<SeatProps> = ({ index, text }) => {
         style={{
           width: 33,
           height: 34,
-          backgroundColor: selected ? COLORS.green : COLORS.white,
           borderRadius: 5,
+          backgroundColor: selected ? COLORS.green : COLORS.white,
         }}>
         <BodyRegular
           text={text}
           textStyles={{
             textAlign: 'center',
-            marginTop: 4,
+            marginTop: 6,
           }}
         />
       </ImageBackground>

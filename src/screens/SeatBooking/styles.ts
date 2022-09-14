@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 35,
   },
   rest: { marginTop: 33, marginHorizontal: 29 },
   restDetailsContainer: {

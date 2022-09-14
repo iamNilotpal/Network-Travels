@@ -18,7 +18,9 @@ const BookingHeader = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={{ padding: 2 }}>
         <Image source={Icons.arrowLeft as ImageSourcePropType} />
       </TouchableOpacity>
 
