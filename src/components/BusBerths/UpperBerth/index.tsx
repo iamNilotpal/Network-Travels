@@ -1,9 +1,49 @@
-import React from 'react';
-import { View, Pressable } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Pressable,
+  ImageBackground,
+  ImageSourcePropType,
+} from 'react-native';
+import { COLORS, Icons } from '../../../constants';
 import { UPPER_BERTH } from '../../../constants/data';
 import BodyRegular from '../../common/Text/Body/BodyRegular';
-import BigSeat from '../../Icons/Seat/Big';
 import styles from './styles';
+
+type SeatProps = {
+  text: string;
+  index: number;
+};
+
+const Seat: React.FC<SeatProps> = ({ index, text }) => {
+  const [selected, setSelected] = useState(false);
+
+  return (
+    <Pressable
+      style={{
+        marginBottom: 5,
+      }}
+      key={index}
+      onPress={() => setSelected(prev => !prev)}>
+      <ImageBackground
+        source={Icons.bigSeat as ImageSourcePropType}
+        style={{
+          width: 35,
+          height: 76,
+          borderRadius: 5,
+          backgroundColor: selected ? COLORS.green : COLORS.white,
+        }}>
+        <BodyRegular
+          text={text}
+          textStyles={{
+            textAlign: 'center',
+            marginTop: 18,
+          }}
+        />
+      </ImageBackground>
+    </Pressable>
+  );
+};
 
 const UpperBerth = () => {
   return (
@@ -16,14 +56,7 @@ const UpperBerth = () => {
         <View style={styles.seat}>
           {UPPER_BERTH.map((item, i) =>
             item.visible ? (
-              <Pressable style={{ marginBottom: 5 }} key={i}>
-                <BigSeat>
-                  <BodyRegular
-                    text={item.text}
-                    textStyles={{ textAlign: 'center' }}
-                  />
-                </BigSeat>
-              </Pressable>
+              <Seat index={i} text={item.text} key={i} />
             ) : (
               <View style={{ marginHorizontal: 10 }} key={i} />
             ),

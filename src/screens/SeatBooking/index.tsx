@@ -1,27 +1,65 @@
 import { useRoute } from '@react-navigation/native';
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView, View, Image, ImageSourcePropType } from 'react-native';
+import PaymentBottomNav from '../../components/BottomNav/PaymentBottomNav';
+
 import LowerBerth from '../../components/BusBerths/LowerBerth';
 import UpperBerth from '../../components/BusBerths/UpperBerth';
+import BodyRegular from '../../components/common/Text/Body/BodyRegular';
 import BookingHeader from '../../components/Header/BookingHeader';
-import Tabs from '../../components/Tabs';
+import Hygiene from '../../components/Icons/Hygiene';
+import Safety from '../../components/Icons/Safety';
+import { Images } from '../../constants';
 import styles from './styles';
 
 const SeatBooking = () => {
   const { params } = useRoute();
-  // const bus = params?.bus;
+  const bus = params?.bus;
 
   return (
-    <View>
+    <>
       <BookingHeader />
-      <View style={{ marginTop: 25 }}>
-        <Tabs firstText="One way" secondText="Return" onPress={() => {}} />
-      </View>
-      <View style={styles.berths}>
-        <LowerBerth />
-        <UpperBerth />
-      </View>
-    </View>
+      <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
+        <View style={styles.berths}>
+          <LowerBerth />
+          <UpperBerth />
+        </View>
+        <View style={styles.rest}>
+          <BodyRegular
+            text="Rest-stop"
+            textStyles={{ fontSize: 14, fontWeight: '600', marginBottom: 10 }}
+          />
+          <View style={styles.restDetailsContainer}>
+            <BodyRegular text={bus.rest} textStyles={{ fontWeight: '600' }} />
+            <View style={styles.restDetails}>
+              <View style={[styles.details, { marginRight: 10 }]}>
+                <Safety />
+                <BodyRegular text="Safe" textStyles={{ marginLeft: 3 }} />
+              </View>
+              <View style={styles.details}>
+                <Hygiene />
+                <BodyRegular
+                  text="Hygiene"
+                  textStyles={{ marginLeft: 3, marginBottom: 3 }}
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View style={styles.amenitiesContainer}>
+          <BodyRegular
+            text="Amenities & photos"
+            textStyles={{ marginBottom: 10 }}
+          />
+          <Image
+            source={Images.amenities as ImageSourcePropType}
+            resizeMode="contain"
+            style={{ width: '100%', height: 150 }}
+          />
+        </View>
+      </ScrollView>
+      <PaymentBottomNav price={100} seats={3} onPress={() => {}} />
+    </>
   );
 };
 

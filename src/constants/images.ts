@@ -9,6 +9,7 @@ import group2 from '../assets/images/group2.png';
 import line1 from '../assets/images/line1.png';
 import line2 from '../assets/images/line2.png';
 import line3 from '../assets/images/line3.png';
+import amenities from '../assets/images/amenities.png';
 
 export default {
   bus,
@@ -22,4 +23,5 @@ export default {
   line1,
   line2,
   line3,
+  amenities,
 };

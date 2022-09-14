@@ -9,6 +9,8 @@ import profile from '../assets/icons/account.png';
 import home from '../assets/icons/home.png';
 import support from '../assets/icons/support.png';
 import bookings from '../assets/icons/bookings.png';
+import smallSeat from '../assets/icons/seat-small.png';
+import bigSeat from '../assets/icons/seat-large.png';
 
 export default {
   arrowLeftSmall,
@@ -22,4 +24,6 @@ export default {
   support,
   bookings,
   arrowLeft,
+  smallSeat,
+  bigSeat,
 };

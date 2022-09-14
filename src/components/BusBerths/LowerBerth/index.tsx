@@ -1,11 +1,51 @@
-import React from 'react';
-import { Pressable, View } from 'react-native';
+import React, { useState } from 'react';
+import {
+  Pressable,
+  View,
+  ImageBackground,
+  ImageSourcePropType,
+} from 'react-native';
+import { COLORS, Icons } from '../../../constants';
 
 import { LOWER_BERTH } from '../../../constants/data';
 import BodyRegular from '../../common/Text/Body/BodyRegular';
-import SmallSeat from '../../Icons/Seat/Small';
 import Steering from '../../Icons/Steering';
 import styles from './styles';
+
+type SeatProps = {
+  text: string;
+  index: number;
+};
+
+const Seat: React.FC<SeatProps> = ({ index, text }) => {
+  const [selected, setSelected] = useState(false);
+
+  return (
+    <Pressable
+      onPress={() => setSelected(prev => !prev)}
+      style={{
+        marginBottom: 5,
+      }}
+      key={index}>
+      <ImageBackground
+        source={Icons.smallSeat as ImageSourcePropType}
+        style={{
+          width: 33,
+          height: 34,
+          backgroundColor: selected ? COLORS.green : COLORS.white,
+          borderRadius: 5,
+        }}>
+        <BodyRegular
+          text={text}
+          textStyles={{
+            textAlign: 'center',
+            marginTop: 4,
+          }}
+        />
+      </ImageBackground>
+    </Pressable>
+  );
+};
 
 const LowerBerth = () => {
   return (
@@ -21,16 +61,9 @@ const LowerBerth = () => {
         <View style={styles.seat}>
           {LOWER_BERTH.map((item, i) =>
             item.visible ? (
-              <Pressable style={{ marginBottom: 5 }} key={i}>
-                <SmallSeat>
-                  <BodyRegular
-                    text={item.text}
-                    textStyles={{ textAlign: 'center' }}
-                  />
-                </SmallSeat>
-              </Pressable>
+              <Seat text={item.text} index={i} key={i} />
             ) : (
-              <View style={{ marginHorizontal: 10 }} key={i} />
+              <View style={{ marginHorizontal: 15 }} key={i} />
             ),
           )}
         </View>

@@ -5,8 +5,9 @@ export default StyleSheet.create({
   berthContainer: {
     borderWidth: 2,
     borderColor: COLORS.primary,
+    backgroundColor: 'rgba(250, 208, 8, 0.15)',
     borderRadius: 5,
-    width: 145,
+    width: 148,
     position: 'relative',
     paddingBottom: 5,
   },
