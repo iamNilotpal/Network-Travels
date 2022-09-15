@@ -5,17 +5,19 @@ import BodyRegular from '../../common/Text/Body/BodyRegular';
 import { COLORS } from '../../../constants';
 
 type TabsProps = {
-  containerStyles?: StyleProp<ViewStyle>;
   firstText: string;
   secondText: string;
   onPress: (text: string) => void;
+  containerStyles?: StyleProp<ViewStyle>;
+  tabPadding?: number;
 };
 
-const Tabs: React.FC<TabsProps> = ({
+const AuthTabs: React.FC<TabsProps> = ({
   containerStyles,
   firstText,
   secondText,
   onPress,
+  tabPadding,
 }) => {
   const [selected, setSelected] = useState(firstText);
 
@@ -33,13 +35,14 @@ const Tabs: React.FC<TabsProps> = ({
           {
             backgroundColor:
               selected === firstText ? COLORS.white : 'transparent',
+            paddingHorizontal: tabPadding || 35,
           },
         ]}>
         <BodyRegular
           text={firstText}
           textStyles={{
-            color: selected === firstText ? COLORS.black : COLORS.darkGray,
-            fontWeight: selected === firstText ? '700' : '500',
+            color: COLORS.black,
+            opacity: selected === firstText ? 1 : 0.3,
           }}
         />
       </Pressable>
@@ -50,13 +53,14 @@ const Tabs: React.FC<TabsProps> = ({
           {
             backgroundColor:
               selected === secondText ? COLORS.white : 'transparent',
+            paddingHorizontal: tabPadding || 35,
           },
         ]}>
         <BodyRegular
           text={secondText}
           textStyles={{
-            color: selected === secondText ? COLORS.black : COLORS.darkGray,
-            fontWeight: selected === secondText ? '700' : '500',
+            color: COLORS.black,
+            opacity: selected === secondText ? 1 : 0.3,
           }}
         />
       </Pressable>
@@ -64,4 +68,4 @@ const Tabs: React.FC<TabsProps> = ({
   );
 };
 
-export default Tabs;
+export default AuthTabs;

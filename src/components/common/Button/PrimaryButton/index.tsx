@@ -4,6 +4,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ViewStyle,
+  TextStyle,
 } from 'react-native';
 import { COLORS, SIZES } from '../../../../constants';
 import BodyRegular from '../../Text/Body/BodyRegular';
@@ -11,8 +12,9 @@ import BodyRegular from '../../Text/Body/BodyRegular';
 type PrimaryButtonProps = {
   text: string;
   onPress: () => void;
-  btnStyles?: StyleProp<ViewStyle>;
   disabled?: boolean;
+  btnStyles?: StyleProp<ViewStyle>;
+  textStyles?: StyleProp<TextStyle>;
 };
 
 const PrimaryButton: React.FC<PrimaryButtonProps> = ({
@@ -20,6 +22,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   onPress,
   btnStyles,
   disabled,
+  textStyles,
 }) => {
   return (
     <TouchableOpacity
@@ -29,11 +32,14 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       style={[styles.container, btnStyles, { opacity: disabled ? 0.6 : 1 }]}>
       <BodyRegular
         text={text}
-        textStyles={{
-          color: '#fff',
-          fontWeight: 'bold',
-          textAlign: 'center',
-        }}
+        textStyles={[
+          {
+            color: '#fff',
+            fontWeight: 'bold',
+            textAlign: 'center',
+          },
+          textStyles,
+        ]}
       />
     </TouchableOpacity>
   );
