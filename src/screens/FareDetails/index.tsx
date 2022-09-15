@@ -29,7 +29,10 @@ const FareDetailsScreen = () => {
           </View>
         </View>
         <View>
-          <BodyRegular text="Fare" textStyles={{ fontWeight: '700' }} />
+          <BodyRegular
+            text="Fare"
+            textStyles={{ fontWeight: '700', alignSelf: 'flex-end' }}
+          />
           <View style={styles.fares}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Rupee height={12} />

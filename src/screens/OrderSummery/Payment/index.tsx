@@ -67,9 +67,6 @@ const OrderSummery = () => {
             />
             <BodyRegular text="Sunday, 22 April" />
           </View>
-          <View style={styles.busContainer}>
-            <BusSmall />
-          </View>
           <View>
             <BodyRegular
               text="Departure time"

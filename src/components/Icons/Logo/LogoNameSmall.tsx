@@ -1,7 +1,7 @@
 import React from 'react';
 import { Svg, Path } from 'react-native-svg';
 
-const LogoSmall = () => {
+const LogoNameSmall = () => {
   return (
     <Svg width="93" height="10" viewBox="0 0 93 10" fill="none">
       <Path
@@ -12,4 +12,4 @@ const LogoSmall = () => {
   );
 };
 
-export default LogoSmall;
+export default LogoNameSmall;

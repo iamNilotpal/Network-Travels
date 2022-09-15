@@ -9,7 +9,7 @@ export default StyleSheet.create({
     marginTop: 60,
   },
 
-  fares: { marginTop: 36 },
+  fares: { marginTop: 26 },
 
   divider: {
     width: '90%',
