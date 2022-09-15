@@ -12,7 +12,7 @@ import { COLORS, SIZES } from '../../../constants';
 type TextInputProps = {
   placeholder: string;
   value?: string;
-  placeholderColor?: string;
+  placeholderTextColor?: string;
   onChangeText?: (text: string) => void;
   keyboardType?: KeyboardTypeOptions;
   inputStyles?: StyleProp<ViewStyle>;
@@ -24,7 +24,7 @@ const TextInput: React.FC<TextInputProps> = ({ inputStyles, ...rest }) => {
     <View style={[styles.container, inputStyles]}>
       <NativeTextInput
         placeholderTextColor={COLORS.lightGray}
-        style={{ fontWeight: '600' }}
+        style={{ fontWeight: '600', height: '100%' }}
         {...rest}
       />
     </View>

@@ -24,12 +24,7 @@ const Seat: React.FC<SeatProps> = ({ index, text }) => {
         marginBottom: 5,
       }}
       key={index}
-      onPress={() =>
-        setSelected(prev => {
-          console.log(prev);
-          return !prev;
-        })
-      }>
+      onPress={() => setSelected(prev => !prev)}>
       <ImageBackground
         source={Icons.bigSeat as ImageSourcePropType}
         style={{

@@ -9,6 +9,9 @@ import FiltersContainer from '../containers/FiltersContainer';
 import SeatBooking from '../screens/SeatBooking';
 import FareDetailsScreen from '../screens/FareDetails';
 import PickupDropPointsScreen from '../screens/Pickup&DropPoints';
+import PassengerDetails from '../screens/PassengerDetails';
+import OrderSummery from '../screens/OrderSummery/Payment';
+import OrderPaymentConfirm from '../screens/OrderSummery/Confirm';
 
 export type HomeStackParams = {
   Bottom: undefined;
@@ -17,7 +20,7 @@ export type HomeStackParams = {
   FareDetails: undefined;
   PickupDrop: undefined;
   PassengerDetails: undefined;
-  OrderSummer: undefined;
+  OrderSummery: undefined;
   Payment: undefined;
   MenuBar: undefined;
   Filter: undefined;
@@ -52,6 +55,12 @@ const HomeNavigation = () => {
           name="PickupDrop"
           component={PickupDropPointsScreen}
         />
+        <HomeStack.Screen
+          name="PassengerDetails"
+          component={PassengerDetails}
+        />
+        <HomeStack.Screen name="OrderSummery" component={OrderSummery} />
+        <HomeStack.Screen name="Payment" component={OrderPaymentConfirm} />
       </HomeStack.Navigator>
     </>
   );
