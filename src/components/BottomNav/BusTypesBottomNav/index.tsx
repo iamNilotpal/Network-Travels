@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { View } from 'react-native';
 import { COLORS } from '../../../constants';
-import { HomeStackParams } from '../../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../../navigation/AppNavigation';
 import BodyRegular from '../../common/Text/Body/BodyRegular';
 import Filter from '../../Icons/Filter';
 import styles from './styles';

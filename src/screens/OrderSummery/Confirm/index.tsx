@@ -11,7 +11,7 @@ import OtherHeader from '../../../components/Header/OtherHeader';
 import Logo from '../../../components/Icons/Logo/Logo';
 import LogoNameBig from '../../../components/Icons/Logo/LogoNameBig';
 import Rupee from '../../../components/Icons/Rupee';
-import { HomeStackParams } from '../../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../../navigation/AppNavigation';
 import styles from './styles';
 import { AppStackParams } from '../../../navigation/BottomNavigation';
 
@@ -97,7 +97,7 @@ const OrderPaymentConfirm = () => {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                marginTop: 31,
+                marginTop: 37,
                 marginHorizontal: 10,
               }}>
               {new Array(22).fill('').map((_, i) => (
@@ -108,7 +108,7 @@ const OrderPaymentConfirm = () => {
             <PrimaryButton
               text="DOWNLOAD TICKET"
               onPress={() => {}}
-              btnStyles={{ width: '100%', marginTop: 29 }}
+              btnStyles={{ width: '100%', marginTop: 27 }}
             />
             <View
               style={{

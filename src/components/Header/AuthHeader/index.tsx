@@ -48,7 +48,7 @@ const AuthHeader: React.FC<AuthHeaderProps> = ({
 }) => {
   const onPress =
     text === 'Skip'
-      ? () => navigation.navigate('LoginScreen')
+      ? () => navigation.navigate('BottomNav')
       : () => navigation.goBack();
 
   return (

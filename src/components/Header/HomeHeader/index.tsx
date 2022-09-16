@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import { COLORS, Icons, Images } from '../../../constants';
-import { HomeStackParams } from '../../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../../navigation/AppNavigation';
 
 const HomeHeader = () => {
   const navigation =
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: 5,
     top: 30,
-    right: 25,
+    right: 30,
     position: 'absolute',
   },
 });

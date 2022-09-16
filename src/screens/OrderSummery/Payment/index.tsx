@@ -8,7 +8,7 @@ import BodyRegular from '../../../components/common/Text/Body/BodyRegular';
 import OtherHeader from '../../../components/Header/OtherHeader';
 import ArrowLeft from '../../../components/Icons/ArrowLeft';
 import BusSmall from '../../../components/Icons/BusSmall';
-import { HomeStackParams } from '../../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../../navigation/AppNavigation';
 import styles from './styles';
 
 const OrderSummery = () => {

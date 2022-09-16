@@ -15,9 +15,9 @@ import OnBoardingNavigation from './OnboardingNavigation';
 
 export type AuthStackParams = {
   Onboarding: undefined;
-  LoginScreen: undefined;
-  RegistrationScreen: undefined;
-  OtpScreen: undefined;
+  Login: undefined;
+  Registration: undefined;
+  Otp: undefined;
 };
 
 const BACK_HEADER_STYLES = Object.freeze({
@@ -45,7 +45,7 @@ const AuthNavigation = () => {
         }}>
         <AuthStack.Screen name="Onboarding" component={OnBoardingNavigation} />
         <AuthStack.Screen
-          name="RegistrationScreen"
+          name="Registration"
           component={RegistrationScreen}
           options={{
             headerShown: true,
@@ -63,7 +63,7 @@ const AuthNavigation = () => {
           }}
         />
         <AuthStack.Screen
-          name="LoginScreen"
+          name="Login"
           component={LoginScreen}
           options={{
             headerShown: true,
@@ -82,7 +82,7 @@ const AuthNavigation = () => {
           }}
         />
         <AuthStack.Screen
-          name="OtpScreen"
+          name="Otp"
           component={OtpScreen}
           options={{
             headerShown: true,

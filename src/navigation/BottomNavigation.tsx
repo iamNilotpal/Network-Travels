@@ -8,7 +8,7 @@ import { COLORS, Icons } from '../constants';
 import Bookings from '../screens/Bookings';
 import HelpSupport from '../screens/Help&Support';
 import HomeScreen from '../screens/Home';
-import Profile from '../screens/Profile';
+import ProfileScreen from '../screens/Profile';
 
 export type AppStackParams = {
   Home: undefined;
@@ -62,7 +62,7 @@ const BottomNavigation = () => {
       />
       <BottomStack.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileScreen}
         options={{
           tabBarIcon: () => (
             <Image source={Icons.profile as ImageSourcePropType} />

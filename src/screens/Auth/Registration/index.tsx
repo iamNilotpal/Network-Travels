@@ -36,7 +36,7 @@ const RegistrationScreen = () => {
       });
       if (!isValid)
         return showAlert('Registration Error', 'Invalid Phone Number');
-      navigation.navigate('OtpScreen');
+      navigation.navigate('Otp');
     } else showAlert('Registration Error', 'All fields are required.');
   };
 
@@ -77,7 +77,7 @@ const RegistrationScreen = () => {
             text="Already have an account?"
             textStyles={{ fontWeight: '500' }}
           />
-          <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <BodyRegular
               text="LOGIN"
               textStyles={{

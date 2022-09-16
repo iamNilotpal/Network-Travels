@@ -12,7 +12,7 @@ import Hygiene from '../../components/Icons/Hygiene';
 import Safety from '../../components/Icons/Safety';
 import BookingsTab from '../../components/Tabs/BookingsTab';
 import { Images } from '../../constants';
-import { HomeStackParams } from '../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../navigation/AppNavigation';
 import styles from './styles';
 
 const SeatBooking = () => {

@@ -9,7 +9,7 @@ import BodyRegular from '../../Text/Body/BodyRegular';
 import HeadingBold from '../../Text/Heading/Bold';
 import styles from './styles';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { HomeStackParams } from '../../../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../../../navigation/AppNavigation';
 
 type BookingCardProps = {
   containerStyle?: StyleProp<ViewStyle>;

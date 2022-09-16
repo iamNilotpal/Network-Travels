@@ -4,7 +4,7 @@ import React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 
 import { COLORS } from '../../../constants';
-import { HomeStackParams } from '../../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../../navigation/AppNavigation';
 import PrimaryButton from '../../common/Button/PrimaryButton';
 import TextInput from '../../common/TextInput';
 import Dash from './Dash';

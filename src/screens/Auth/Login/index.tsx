@@ -28,7 +28,7 @@ const LoginScreen = () => {
     const { isValid } = phone(user.mobileNumber, { country: 'IND' });
     if (!isValid) return showAlert('Login Error', 'Enter valid phone number.');
 
-    navigation.navigate('OtpScreen');
+    navigation.navigate('Otp');
   };
 
   return (

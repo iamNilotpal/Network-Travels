@@ -10,7 +10,7 @@ import OtherHeader from '../../components/Header/OtherHeader';
 import ArrowLeft from '../../components/Icons/ArrowLeft';
 import BookingsTab from '../../components/Tabs/BookingsTab';
 import { COLORS } from '../../constants';
-import { HomeStackParams } from '../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../navigation/AppNavigation';
 import styles from './styles';
 
 const data = [

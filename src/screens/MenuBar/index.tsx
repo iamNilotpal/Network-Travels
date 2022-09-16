@@ -6,7 +6,7 @@ import BodyRegular from '../../components/common/Text/Body/BodyRegular';
 import User from '../../components/Icons/User';
 import X from '../../components/Icons/X';
 import { MENU_BAR_DATA } from '../../constants/menuBar';
-import { HomeStackParams } from '../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../navigation/AppNavigation';
 import styles from './styles';
 
 const MenuBarScreen = () => {

@@ -7,7 +7,7 @@ import BusCardHeader from './BusCardHeader';
 import BusCardMain from './BusCardMain';
 import styles from './styles';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { HomeStackParams } from '../../../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../../../navigation/AppNavigation';
 
 const BusCard = (props: any) => {
   const navigation =

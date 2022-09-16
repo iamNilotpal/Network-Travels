@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import { COLORS, Icons } from '../../../constants';
-import { HomeStackParams } from '../../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../../navigation/AppNavigation';
 import BodyRegular from '../../common/Text/Body/BodyRegular';
 
 const BookingHeader = () => {

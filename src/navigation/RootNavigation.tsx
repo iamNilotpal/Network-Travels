@@ -2,10 +2,7 @@ import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { COLORS } from '../constants';
 
-import { selectActivated } from '../store/features/authSlice';
-import { useAppSelector } from '../store/hooks';
-import AuthNavigation from './AuthNavigation';
-import HomeNavigation from './HomeNavigation';
+import AppNavigation from './AppNavigation';
 
 const theme = {
   ...DefaultTheme,
@@ -16,13 +13,9 @@ const theme = {
 };
 
 const RootNavigation = () => {
-  const isActivated = useAppSelector(selectActivated);
-
   return (
     <NavigationContainer theme={theme}>
-      {/* {isActivated ? <AppNavigation /> : <AuthNavigation />} */}
-      <HomeNavigation />
-      {/* <AuthNavigation /> */}
+      <AppNavigation />
     </NavigationContainer>
   );
 };

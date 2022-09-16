@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { HomeStackParams } from '../../../navigation/HomeNavigation';
+import { HomeStackParams } from '../../../navigation/AppNavigation';
 
 import BodyRegular from '../../common/Text/Body/BodyRegular';
 import ArrowRight from '../../Icons/ArrowRight';
