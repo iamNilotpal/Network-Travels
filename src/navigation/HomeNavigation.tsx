@@ -12,6 +12,8 @@ import PickupDropPointsScreen from '../screens/Pickup&DropPoints';
 import PassengerDetails from '../screens/PassengerDetails';
 import OrderSummery from '../screens/OrderSummery/Payment';
 import OrderPaymentConfirm from '../screens/OrderSummery/Confirm';
+import RateAndReviewScreen from '../screens/Rate&Review';
+import CancelBookingScreen from '../screens/CancelBooking';
 
 export type HomeStackParams = {
   Bottom: undefined;
@@ -24,6 +26,8 @@ export type HomeStackParams = {
   Payment: undefined;
   MenuBar: undefined;
   Filter: undefined;
+  RateAndReview: undefined;
+  CancelBooking: undefined;
 };
 
 const HomeStack = createNativeStackNavigator<HomeStackParams>();
@@ -61,6 +65,14 @@ const HomeNavigation = () => {
         />
         <HomeStack.Screen name="OrderSummery" component={OrderSummery} />
         <HomeStack.Screen name="Payment" component={OrderPaymentConfirm} />
+        <HomeStack.Screen
+          name="RateAndReview"
+          component={RateAndReviewScreen}
+        />
+        <HomeStack.Screen
+          name="CancelBooking"
+          component={CancelBookingScreen}
+        />
       </HomeStack.Navigator>
     </>
   );

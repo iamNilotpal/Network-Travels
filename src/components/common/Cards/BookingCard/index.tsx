@@ -1,15 +1,26 @@
 import React from 'react';
-import { View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+import { StyleProp, View, ViewStyle } from 'react-native';
 
 import { COLORS } from '../../../../constants';
 import PrimaryButton from '../../Button/PrimaryButton';
 import BodyRegular from '../../Text/Body/BodyRegular';
 import HeadingBold from '../../Text/Heading/Bold';
 import styles from './styles';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { HomeStackParams } from '../../../../navigation/HomeNavigation';
 
-const BookingCard = () => {
+type BookingCardProps = {
+  containerStyle?: StyleProp<ViewStyle>;
+};
+
+const BookingCard: React.FC<BookingCardProps> = ({ containerStyle = {} }) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, containerStyle]}>
       <View style={styles.header}>
         <HeadingBold
           text="UPCOMING"
@@ -62,22 +73,22 @@ const BookingCard = () => {
           marginTop: 15,
         }}>
         <PrimaryButton
-          onPress={() => {}}
+          onPress={() => navigation.navigate('RateAndReview')}
           text="Rate & review"
-          btnStyles={{ width: '30%', paddingVertical: 10 }}
-          textStyles={{ fontWeight: '500' }}
+          btnStyles={{ width: '30%', paddingVertical: 9 }}
+          textStyles={{ fontSize: 11.5, fontWeight: '500' }}
         />
         <PrimaryButton
           onPress={() => {}}
           text="Download ticket"
-          btnStyles={{ width: '32%', paddingVertical: 10 }}
-          textStyles={{ fontWeight: '500' }}
+          btnStyles={{ width: '32%', paddingVertical: 9 }}
+          textStyles={{ fontSize: 11.5, fontWeight: '500' }}
         />
         <PrimaryButton
-          onPress={() => {}}
+          onPress={() => navigation.navigate('CancelBooking')}
           text="Cancel ticket"
-          btnStyles={{ width: '30%', paddingVertical: 10 }}
-          textStyles={{ fontWeight: '500' }}
+          btnStyles={{ width: '30%', paddingVertical: 9 }}
+          textStyles={{ fontSize: 11.5, fontWeight: '500' }}
         />
       </View>
     </View>

@@ -11,6 +11,11 @@ import support from '../assets/icons/support.png';
 import bookings from '../assets/icons/bookings.png';
 import smallSeat from '../assets/icons/seat-small.png';
 import bigSeat from '../assets/icons/seat-large.png';
+import angryEmoji from '../assets/icons/emoji-angry.png';
+import sadEmoji from '../assets/icons/emoji-sad.png';
+import goodEmoji from '../assets/icons/emoji-good.png';
+import happyEmoji from '../assets/icons/emoji-happy.png';
+import veryHappyEmoji from '../assets/icons/emoji-veryhappy.png';
 
 export default {
   arrowLeftSmall,
@@ -26,4 +31,9 @@ export default {
   arrowLeft,
   smallSeat,
   bigSeat,
+  angryEmoji,
+  sadEmoji,
+  goodEmoji,
+  happyEmoji,
+  veryHappyEmoji,
 };

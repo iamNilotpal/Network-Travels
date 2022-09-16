@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 250,
+    width: 230,
   },
 
   notification: {

@@ -24,7 +24,12 @@ const TextInput: React.FC<TextInputProps> = ({ inputStyles, ...rest }) => {
     <View style={[styles.container, inputStyles]}>
       <NativeTextInput
         placeholderTextColor={COLORS.lightGray}
-        style={{ fontWeight: '600', height: '100%' }}
+        style={{
+          fontWeight: '600',
+          height: '100%',
+          width: '100%',
+          textAlignVertical: 'top',
+        }}
         {...rest}
       />
     </View>

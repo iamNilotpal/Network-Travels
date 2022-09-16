@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
+
 import BookingCard from '../../components/common/Cards/BookingCard';
 import OtherHeader from '../../components/Header/OtherHeader';
 import AuthTabs from '../../components/Tabs/AuthTabs';
@@ -22,10 +23,10 @@ const Bookings = () => {
         />
         <ScrollView
           style={{ marginTop: 10 }}
-          contentContainerStyle={{ paddingTop: 10, paddingBottom: 90 }}
+          contentContainerStyle={{ paddingTop: 25, paddingBottom: 90 }}
           showsVerticalScrollIndicator={false}>
-          <BookingCard />
-          <BookingCard />
+          <BookingCard containerStyle={{ marginBottom: 18 }} />
+          <BookingCard containerStyle={{ marginBottom: 18 }} />
           <BookingCard />
         </ScrollView>
       </View>
