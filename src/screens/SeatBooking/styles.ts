@@ -4,7 +4,7 @@ import { COLORS } from '../../constants';
 export default StyleSheet.create({
   berths: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
     alignItems: 'center',
     marginTop: 35,
   },

@@ -7,7 +7,7 @@ export default StyleSheet.create({
     borderColor: COLORS.primary,
     backgroundColor: 'rgba(250, 208, 8, 0.15)',
     borderRadius: 5,
-    width: 148,
+    width: 160,
     position: 'relative',
     paddingBottom: 5,
   },
@@ -19,10 +19,11 @@ export default StyleSheet.create({
   },
 
   seat: {
+    paddingHorizontal: 5,
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginTop: 50,
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
     alignItems: 'center',
   },
 });

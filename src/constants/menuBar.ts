@@ -16,6 +16,7 @@ export const MENU_BAR_DATA = [
   {
     Icon: Wallet,
     text: 'My Wallet',
+    screen: 'Wallet',
   },
   {
     Icon: TicketDetails,

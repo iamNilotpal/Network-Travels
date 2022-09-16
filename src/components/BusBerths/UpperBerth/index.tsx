@@ -29,7 +29,7 @@ const Seat: React.FC<SeatProps> = ({ index, text }) => {
         source={Icons.bigSeat as ImageSourcePropType}
         style={{
           width: 35,
-          height: 76,
+          height: 77,
           borderRadius: 5,
           backgroundColor: selected ? COLORS.green : COLORS.white,
         }}>
