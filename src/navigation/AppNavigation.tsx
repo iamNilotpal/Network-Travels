@@ -16,6 +16,7 @@ import PickupDropPointsScreen from '../screens/Pickup&DropPoints';
 import ProfileScreen from '../screens/Profile';
 import RateAndReviewScreen from '../screens/Rate&Review';
 import SeatBooking from '../screens/SeatBooking';
+import TicketDetails from '../screens/TicketDetails';
 import WalletScreen from '../screens/Wallet';
 import AuthNavigation from './AuthNavigation';
 import BottomNavigation from './BottomNavigation';
@@ -36,6 +37,7 @@ export type HomeStackParams = {
   CancelBooking: undefined;
   Profile: undefined;
   Wallet: undefined;
+  TicketDetails: undefined;
 };
 
 const AppStack = createNativeStackNavigator<HomeStackParams>();
@@ -72,6 +74,7 @@ const AppNavigation = () => {
         <AppStack.Screen name="CancelBooking" component={CancelBookingScreen} />
         <AppStack.Screen name="Profile" component={ProfileScreen} />
         <AppStack.Screen name="Wallet" component={WalletScreen} />
+        <AppStack.Screen name="TicketDetails" component={TicketDetails} />
       </AppStack.Navigator>
     </>
   );

@@ -11,7 +11,7 @@ import { HomeStackParams } from '../../navigation/AppNavigation';
 
 const PROFILE_OPTIONS = [
   { label: 'My wallet', screen: 'Wallet' },
-  { label: 'Get ticket details', screen: 'TicketDetail' },
+  { label: 'Get ticket details', screen: 'TicketDetails' },
   { label: 'Share' },
   { label: 'Logout', screen: 'Login' },
 ];
@@ -29,9 +29,9 @@ const ProfileScreen = () => {
         <View style={styles.item}>
           <BodyRegular
             textStyles={{ fontWeight: '700', marginBottom: 5 }}
-            text="Biraj Das"
+            text="Nilotpal Deka"
           />
-          <BodyRegular textStyles={{ fontWeight: '700' }} text="84029 54896" />
+          <BodyRegular textStyles={{ fontWeight: '700' }} text="83990 49174" />
         </View>
         {PROFILE_OPTIONS.map((item, i) => (
           <TouchableOpacity

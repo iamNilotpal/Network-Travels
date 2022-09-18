@@ -1,15 +1,14 @@
-import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 
 import { COLORS } from '../../../../constants';
+import { HomeStackParams } from '../../../../navigation/AppNavigation';
 import PrimaryButton from '../../Button/PrimaryButton';
 import BodyRegular from '../../Text/Body/BodyRegular';
 import HeadingBold from '../../Text/Heading/Bold';
 import styles from './styles';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { HomeStackParams } from '../../../../navigation/AppNavigation';
 
 type BookingCardProps = {
   containerStyle?: StyleProp<ViewStyle>;

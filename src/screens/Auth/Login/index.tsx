@@ -1,19 +1,20 @@
-import { View, Text, Image, ImageSourcePropType } from 'react-native';
-import React from 'react';
-import AuthLayout from '../../../layout/AuthLayout';
-import HeadingBold from '../../../components/common/Text/Heading/Bold';
-import Logo from '../../../components/common/Logo';
-import styles from './styles';
-import TextInput from '../../../components/common/TextInput';
-import PrimaryButton from '../../../components/common/Button/PrimaryButton';
-import { Images } from '../../../constants';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { AuthStackParams } from '../../../navigation/AuthNavigation';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import { selectUser, setUser } from '../../../store/features/authSlice';
-import showAlert from '../../../utils/showAlert';
 import phone from 'phone';
+import React from 'react';
+import { Image, ImageSourcePropType, View } from 'react-native';
+
+import PrimaryButton from '../../../components/common/Button/PrimaryButton';
+import Logo from '../../../components/common/Logo';
+import HeadingBold from '../../../components/common/Text/Heading/Bold';
+import TextInput from '../../../components/common/TextInput';
+import { Images } from '../../../constants';
+import AuthLayout from '../../../layout/AuthLayout';
+import { AuthStackParams } from '../../../navigation/AuthNavigation';
+import { selectUser, setUser } from '../../../store/features/authSlice';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import showAlert from '../../../utils/showAlert';
+import styles from './styles';
 
 const LoginScreen = () => {
   const navigation =
