@@ -27,7 +27,7 @@ export type AppStackParams = {
   Authentication: undefined;
   BottomNav: undefined;
   BusTypes: undefined;
-  SeatBooking: undefined;
+  SeatBooking: { busData: any };
   FareDetails: undefined;
   PickupDrop: undefined;
   PassengerDetails: undefined;

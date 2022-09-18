@@ -1,4 +1,4 @@
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 import { Image, ImageSourcePropType, ScrollView, View } from 'react-native';
@@ -7,7 +7,7 @@ import PaymentBottomNav from '../../components/BottomNav/PaymentBottomNav';
 import LowerBerth from '../../components/BusBerths/LowerBerth';
 import UpperBerth from '../../components/BusBerths/UpperBerth';
 import BodyRegular from '../../components/common/Text/Body/BodyRegular';
-import BookingHeader from '../../components/Header/BookingHeader';
+import BustTypesHeader from '../../components/Header/BusTypesHeader';
 import Hygiene from '../../components/Icons/Hygiene';
 import Safety from '../../components/Icons/Safety';
 import BookingsTab from '../../components/Tabs/BookingsTab';
@@ -19,20 +19,24 @@ import styles from './styles';
 const SeatBooking = () => {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
-  const { params } = useRoute();
-  // @ts-ignore
-  const bus = params?.bus;
+  const {
+    params: {
+      busData: { bus },
+    },
+  } = useRoute<RouteProp<AppStackParams, 'SeatBooking'>>();
+
+  const handleSeatSelect = () => {};
 
   return (
     <>
-      <BookingHeader />
+      <BustTypesHeader />
       <ScrollView
         contentContainerStyle={{ paddingBottom: 80 }}
         showsVerticalScrollIndicator={false}>
         <BookingsTab containerStyles={{ marginTop: 25 }} />
         <View style={styles.berths}>
-          <LowerBerth />
-          <UpperBerth />
+          <LowerBerth onSeatSelect={handleSeatSelect} />
+          <UpperBerth onSeatSelect={handleSeatSelect} />
         </View>
         <View style={styles.rest}>
           <BodyRegular

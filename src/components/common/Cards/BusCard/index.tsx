@@ -16,7 +16,9 @@ const BusCard = (props: any) => {
     <TouchableOpacity
       style={styles.container}
       activeOpacity={0.9}
-      onPress={() => navigation.navigate('SeatBooking', { ...props })}>
+      onPress={() =>
+        navigation.navigate('SeatBooking', { busData: { ...props } })
+      }>
       <View style={styles.wrapper}>
         <BusCardHeader />
         <BusCardMain {...props} />

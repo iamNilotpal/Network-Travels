@@ -8,12 +8,21 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+
+import {
+  selectDestination,
+  selectStart,
+} from '../../../store/features/journeySlice';
+import { useAppSelector } from '../../../store/hooks';
+
 import { COLORS, Icons } from '../../../constants';
 import { AppStackParams } from '../../../navigation/AppNavigation';
 import BodyRegular from '../../common/Text/Body/BodyRegular';
 
-const BookingHeader = () => {
+const BustTypesHeader = () => {
   const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
+  const destination = useAppSelector(selectDestination);
+  const start = useAppSelector(selectStart);
 
   return (
     <View style={styles.container}>
@@ -22,15 +31,13 @@ const BookingHeader = () => {
         style={{ padding: 2 }}>
         <Image source={Icons.arrowLeft as ImageSourcePropType} />
       </TouchableOpacity>
-
-      {/* TIMING CONTAINER*/}
       <View style={styles.timing}>
-        {/* FROM CONTAINER */}
+        {/* START CONTAINER */}
         <View style={styles.from}>
           <View style={{ marginBottom: 7 }}>
             <BodyRegular text="From" textStyles={{ fontSize: 10 }} />
             <BodyRegular
-              text="Guwahati"
+              text={start.from}
               textStyles={{
                 fontSize: 12,
                 fontWeight: '700',
@@ -41,7 +48,7 @@ const BookingHeader = () => {
           <View>
             <BodyRegular text="Departure date" textStyles={{ fontSize: 10 }} />
             <BodyRegular
-              text="21-04-21"
+              text={destination.date}
               textStyles={{
                 fontSize: 12,
                 fontWeight: '700',
@@ -56,7 +63,7 @@ const BookingHeader = () => {
           <View style={{ marginBottom: 7 }}>
             <BodyRegular text="To" textStyles={{ fontSize: 9 }} />
             <BodyRegular
-              text="Jorhat"
+              text={destination.to}
               textStyles={{
                 fontSize: 12,
                 fontWeight: '700',
@@ -66,6 +73,14 @@ const BookingHeader = () => {
           </View>
           <View>
             <BodyRegular text="Return date" textStyles={{ fontSize: 9 }} />
+            <BodyRegular
+              text={start.date}
+              textStyles={{
+                fontSize: 12,
+                fontWeight: '700',
+                color: COLORS.black,
+              }}
+            />
           </View>
         </View>
       </View>
@@ -100,4 +115,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BookingHeader;
+export default BustTypesHeader;

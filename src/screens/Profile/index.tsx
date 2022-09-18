@@ -8,6 +8,8 @@ import OtherHeader from '../../components/Header/OtherHeader';
 import { COLORS } from '../../constants';
 import { AuthStackParams } from '../../navigation/AuthNavigation';
 import { AppStackParams } from '../../navigation/AppNavigation';
+import { useAppSelector } from '../../store/hooks';
+import { selectUser } from '../../store/features/authSlice';
 
 const PROFILE_OPTIONS = [
   { label: 'My wallet', screen: 'Wallet' },
@@ -21,6 +23,10 @@ const ProfileScreen = () => {
     useNavigation<
       NativeStackNavigationProp<AppStackParams & AuthStackParams>
     >();
+  const { fullName, phoneNumber } = useAppSelector(selectUser);
+  const firstFive = phoneNumber.substring(0, 5);
+  const lastFive = phoneNumber.substring(5, phoneNumber.length);
+  const numberToShow = `${firstFive} ${lastFive}`;
 
   return (
     <>
@@ -29,9 +35,9 @@ const ProfileScreen = () => {
         <View style={styles.item}>
           <BodyRegular
             textStyles={{ fontWeight: '700', marginBottom: 5 }}
-            text="Nilotpal Deka"
+            text={fullName}
           />
-          <BodyRegular textStyles={{ fontWeight: '700' }} text="83990 49174" />
+          <BodyRegular textStyles={{ fontWeight: '700' }} text={numberToShow} />
         </View>
         {PROFILE_OPTIONS.map((item, i) => (
           <TouchableOpacity

@@ -13,6 +13,7 @@ import HeadingBold from '../../components/common/Text/Heading/Bold';
 import SearchBusForm from '../../components/Forms/SearchBusForm';
 import HomeHeader from '../../components/Header/HomeHeader';
 import Tabs from '../../components/Tabs/AuthTabs';
+
 import { Images } from '../../constants';
 import styles from './styles';
 

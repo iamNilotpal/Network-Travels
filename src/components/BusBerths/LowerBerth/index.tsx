@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import {
-  Pressable,
-  View,
-  ImageBackground,
-  ImageSourcePropType,
-} from 'react-native';
-import { COLORS, Icons } from '../../../constants';
+import { View } from 'react-native';
+import { COLORS } from '../../../constants';
 
 import { LOWER_BERTH } from '../../../constants/data';
 import BodyRegular from '../../common/Text/Body/BodyRegular';
@@ -24,7 +19,9 @@ const Seat: React.FC<SeatProps> = ({ index, text }) => {
   return (
     <LowerSeat
       selected={selected}
-      onPress={() => setSelected(prev => !prev)}
+      onPress={() => {
+        setSelected(prev => !prev);
+      }}
       style={{
         marginBottom: 7,
         backgroundColor: selected ? COLORS.green : COLORS.white,

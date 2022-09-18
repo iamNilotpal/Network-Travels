@@ -5,7 +5,7 @@ import BusCard from '../../components/common/Cards/BusCard';
 import BusCountCard, {
   BusType,
 } from '../../components/common/Cards/BusCountCard';
-import BookingHeader from '../../components/Header/BookingHeader';
+import BustTypesHeader from '../../components/Header/BusTypesHeader';
 import Line1 from '../../components/Icons/Line1';
 import Line2 from '../../components/Icons/Line2';
 import Line3 from '../../components/Icons/Line3';
@@ -34,7 +34,7 @@ const BusTypes: React.FC<BusTypesProps> = ({
 
   return (
     <>
-      <BookingHeader />
+      <BustTypesHeader />
       <View style={styles.busCountContaineR}>
         {BUSES_COUNT.map(item => (
           <BusCountCard

@@ -3,9 +3,12 @@ import {
   KeyboardTypeOptions,
   StyleProp,
   StyleSheet,
+  TouchableOpacity,
   TextInput as NativeTextInput,
   View,
+  Image,
   type ViewStyle,
+  ImageSourcePropType,
 } from 'react-native';
 import { COLORS, SIZES } from '../../../constants';
 
@@ -13,13 +16,20 @@ type TextInputProps = {
   placeholder: string;
   value?: string;
   placeholderTextColor?: string;
-  onChangeText?: (text: string) => void;
   keyboardType?: KeyboardTypeOptions;
   inputStyles?: StyleProp<ViewStyle>;
   autoFocus?: boolean;
+  Icon?: React.ElementType;
+  onIconPress?: () => void;
+  onChangeText: (text: string) => void;
 };
 
-const TextInput: React.FC<TextInputProps> = ({ inputStyles, ...rest }) => {
+const TextInput: React.FC<TextInputProps> = ({
+  inputStyles,
+  Icon,
+  onIconPress,
+  ...rest
+}) => {
   return (
     <View style={[styles.container, inputStyles]}>
       <NativeTextInput
@@ -32,12 +42,18 @@ const TextInput: React.FC<TextInputProps> = ({ inputStyles, ...rest }) => {
         }}
         {...rest}
       />
+      {Icon && (
+        <TouchableOpacity style={styles.icon} onPress={onIconPress}>
+          {<Icon />}
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    position: 'relative',
     width: 290,
     height: 42,
     backgroundColor: COLORS.white,
@@ -45,6 +61,13 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.base,
     paddingLeft: 15,
     paddingRight: 10,
+  },
+
+  icon: {
+    position: 'absolute',
+    right: 8,
+    top: 9,
+    padding: 3,
   },
 });
 
