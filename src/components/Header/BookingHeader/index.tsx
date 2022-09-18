@@ -9,12 +9,11 @@ import {
   View,
 } from 'react-native';
 import { COLORS, Icons } from '../../../constants';
-import { HomeStackParams } from '../../../navigation/AppNavigation';
+import { AppStackParams } from '../../../navigation/AppNavigation';
 import BodyRegular from '../../common/Text/Body/BodyRegular';
 
 const BookingHeader = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   return (
     <View style={styles.container}>

@@ -8,12 +8,11 @@ import BodyRegular from '../../../components/common/Text/Body/BodyRegular';
 import OtherHeader from '../../../components/Header/OtherHeader';
 import ArrowLeft from '../../../components/Icons/ArrowLeft';
 import BusSmall from '../../../components/Icons/BusSmall';
-import { HomeStackParams } from '../../../navigation/AppNavigation';
+import { AppStackParams } from '../../../navigation/AppNavigation';
 import styles from './styles';
 
 const OrderSummery = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   return (
     <>

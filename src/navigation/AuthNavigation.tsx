@@ -11,13 +11,15 @@ import { COLORS, Icons, SIZES } from '../constants';
 import LoginScreen from '../screens/Auth/Login';
 import OtpScreen from '../screens/Auth/OTP';
 import RegistrationScreen from '../screens/Auth/Registration';
+import { AppStackParams } from './AppNavigation';
 import OnBoardingNavigation from './OnboardingNavigation';
 
+type MetaParam = { screen?: keyof AppStackParams; metadata?: any } | undefined;
 export type AuthStackParams = {
   Onboarding: undefined;
-  Login: undefined;
-  Registration: undefined;
-  Otp: undefined;
+  Login: MetaParam;
+  Registration: MetaParam;
+  Otp: MetaParam;
 };
 
 const BACK_HEADER_STYLES = Object.freeze({

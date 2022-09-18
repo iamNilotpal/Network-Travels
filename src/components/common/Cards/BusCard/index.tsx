@@ -7,11 +7,10 @@ import BusCardHeader from './BusCardHeader';
 import BusCardMain from './BusCardMain';
 import styles from './styles';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { HomeStackParams } from '../../../../navigation/AppNavigation';
+import { AppStackParams } from '../../../../navigation/AppNavigation';
 
 const BusCard = (props: any) => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   return (
     <TouchableOpacity

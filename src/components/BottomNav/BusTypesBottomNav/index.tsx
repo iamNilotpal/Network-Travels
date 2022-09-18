@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { View } from 'react-native';
 import { COLORS } from '../../../constants';
-import { HomeStackParams } from '../../../navigation/AppNavigation';
+import { AppStackParams } from '../../../navigation/AppNavigation';
 import BodyRegular from '../../common/Text/Body/BodyRegular';
 import Filter from '../../Icons/Filter';
 import styles from './styles';
@@ -19,8 +19,7 @@ const BOTTOM_NAV_LINKS = [
 
 const BusTypesBottomNav = () => {
   const [current, setCurrent] = useState<string>('');
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   const handlePress = (item: any) => {
     setCurrent(item.text);

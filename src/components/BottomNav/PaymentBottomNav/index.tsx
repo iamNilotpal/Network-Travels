@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { HomeStackParams } from '../../../navigation/AppNavigation';
+import { AppStackParams } from '../../../navigation/AppNavigation';
 
 import BodyRegular from '../../common/Text/Body/BodyRegular';
 import ArrowRight from '../../Icons/ArrowRight';
@@ -31,8 +31,7 @@ const PaymentBottomNav: React.FC<PaymentBottomNavProps> = ({
   onPress,
   btnText = 'NEXT',
 }) => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   return (
     <View style={[styles.container, containerStyle]}>

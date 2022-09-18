@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import phone from 'phone';
 import React from 'react';
@@ -17,26 +17,33 @@ import AuthLayout from '../../../layout/AuthLayout';
 
 import { Icons, Images, SIZES } from '../../../constants';
 import { AuthStackParams } from '../../../navigation/AuthNavigation';
+import showAlert from '../../../utils/showAlert';
 import styles from './styles';
 
 import { selectUser, setUser } from '../../../store/features/authSlice';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import showAlert from '../../../utils/showAlert';
 
 const RegistrationScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<AuthStackParams>>();
+  const { params } = useRoute<RouteProp<AuthStackParams, 'Registration'>>();
+
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
 
   const handleRegistration = () => {
-    if (user.fullName && user.mobileNumber.length) {
-      const { isValid } = phone(user.mobileNumber, {
+    if (user.fullName && user.phoneNumber.length > 0) {
+      const { isValid } = phone(user.phoneNumber, {
         country: 'IND',
       });
+
       if (!isValid)
         return showAlert('Registration Error', 'Invalid Phone Number');
-      navigation.navigate('Otp');
+
+      navigation.navigate('Otp', {
+        screen: params?.screen,
+        metadata: params?.screen,
+      });
     } else showAlert('Registration Error', 'All fields are required.');
   };
 
@@ -59,8 +66,8 @@ const RegistrationScreen = () => {
           placeholder="Mobile number"
           inputStyles={{ marginBottom: 8 }}
           keyboardType="numeric"
-          onChangeText={mobileNumber =>
-            dispatch(setUser({ ...user, mobileNumber }))
+          onChangeText={phoneNumber =>
+            dispatch(setUser({ ...user, phoneNumber }))
           }
         />
         <TextInput

@@ -1,16 +1,16 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { COLORS } from '../constants';
 
+import { COLORS } from '../constants';
 import AppNavigation from './AppNavigation';
 
-const theme = {
+const theme = Object.freeze({
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
     background: COLORS.white,
   },
-};
+});
 
 const RootNavigation = () => {
   return (

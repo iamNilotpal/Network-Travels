@@ -12,13 +12,12 @@ import RadioButton from '../../components/common/RadioButton';
 import PrimaryButton from '../../components/common/Button/PrimaryButton';
 import PaymentBottomNav from '../../components/BottomNav/PaymentBottomNav';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { HomeStackParams } from '../../navigation/AppNavigation';
+import { AppStackParams } from '../../navigation/AppNavigation';
 import { useNavigation } from '@react-navigation/native';
 
 const PassengerDetails = () => {
   const [sendUpdates, setSendUpdates] = useState(true);
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   return (
     <>

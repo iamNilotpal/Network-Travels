@@ -9,11 +9,10 @@ import {
   View,
 } from 'react-native';
 import { COLORS, Icons, Images } from '../../../constants';
-import { HomeStackParams } from '../../../navigation/AppNavigation';
+import { AppStackParams } from '../../../navigation/AppNavigation';
 
 const HomeHeader = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   return (
     <View style={styles.container}>

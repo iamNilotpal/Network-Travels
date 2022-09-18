@@ -4,7 +4,7 @@ import React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 
 import { COLORS } from '../../../constants';
-import { HomeStackParams } from '../../../navigation/AppNavigation';
+import { AppStackParams } from '../../../navigation/AppNavigation';
 import PrimaryButton from '../../common/Button/PrimaryButton';
 import TextInput from '../../common/TextInput';
 import Dash from './Dash';
@@ -16,8 +16,7 @@ type SearchBusFormProps = {
 };
 
 const SearchBusForm: React.FC<SearchBusFormProps> = ({ containerStyles }) => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   return (
     <View style={[styles.container, containerStyles]}>

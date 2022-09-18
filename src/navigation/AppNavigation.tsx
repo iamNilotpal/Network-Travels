@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-
 import StatusBar from '../components/common/StatusBar';
 import { COLORS } from '../constants';
 
+/* -------- SCREENS -------- */
 import BusesContainer from '../containers/BusesContainer';
 import FiltersContainer from '../containers/FiltersContainer';
 import CancelBookingScreen from '../screens/CancelBooking';
@@ -18,10 +18,12 @@ import RateAndReviewScreen from '../screens/Rate&Review';
 import SeatBooking from '../screens/SeatBooking';
 import TicketDetails from '../screens/TicketDetails';
 import WalletScreen from '../screens/Wallet';
+
+/* --------- STACK NAVIGATORS --------  */
 import AuthNavigation from './AuthNavigation';
 import BottomNavigation from './BottomNavigation';
 
-export type HomeStackParams = {
+export type AppStackParams = {
   Authentication: undefined;
   BottomNav: undefined;
   BusTypes: undefined;
@@ -40,7 +42,7 @@ export type HomeStackParams = {
   TicketDetails: undefined;
 };
 
-const AppStack = createNativeStackNavigator<HomeStackParams>();
+const AppStack = createNativeStackNavigator<AppStackParams>();
 
 const AppNavigation = () => {
   return (

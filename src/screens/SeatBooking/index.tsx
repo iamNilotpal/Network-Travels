@@ -1,9 +1,9 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
-import React from 'react';
-import { Image, ImageSourcePropType, ScrollView, View } from 'react-native';
-import PaymentBottomNav from '../../components/BottomNav/PaymentBottomNav';
-
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import React, { useState } from 'react';
+import { Image, ImageSourcePropType, ScrollView, View } from 'react-native';
+
+import PaymentBottomNav from '../../components/BottomNav/PaymentBottomNav';
 import LowerBerth from '../../components/BusBerths/LowerBerth';
 import UpperBerth from '../../components/BusBerths/UpperBerth';
 import BodyRegular from '../../components/common/Text/Body/BodyRegular';
@@ -11,13 +11,14 @@ import BookingHeader from '../../components/Header/BookingHeader';
 import Hygiene from '../../components/Icons/Hygiene';
 import Safety from '../../components/Icons/Safety';
 import BookingsTab from '../../components/Tabs/BookingsTab';
+
 import { Images } from '../../constants';
-import { HomeStackParams } from '../../navigation/AppNavigation';
+import { AppStackParams } from '../../navigation/AppNavigation';
 import styles from './styles';
 
 const SeatBooking = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
   const { params } = useRoute();
   // @ts-ignore
   const bus = params?.bus;
@@ -67,11 +68,13 @@ const SeatBooking = () => {
           />
         </View>
       </ScrollView>
-      <PaymentBottomNav
-        price={100}
-        seats={3}
-        onPress={() => navigation.navigate('PickupDrop')}
-      />
+      {selectedSeats.length > 0 && (
+        <PaymentBottomNav
+          price={100}
+          seats={3}
+          onPress={() => navigation.navigate('PickupDrop')}
+        />
+      )}
     </>
   );
 };

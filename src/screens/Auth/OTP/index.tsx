@@ -1,3 +1,5 @@
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import {
   Image,
@@ -7,17 +9,24 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import PrimaryButton from '../../../components/common/Button/PrimaryButton';
 
+/* --------- STACK PARAMS --------  */
+import { AppStackParams } from '../../../navigation/AppNavigation';
+import { AuthStackParams } from '../../../navigation/AuthNavigation';
+
+/* ------ COMPONENTS ------ */
+import PrimaryButton from '../../../components/common/Button/PrimaryButton';
 import OtpInput from '../../../components/common/OtpInput';
 import BodyRegular from '../../../components/common/Text/Body/BodyRegular';
-import { Images } from '../../../constants';
 import AuthLayout from '../../../layout/AuthLayout';
+
 import {
   setActivated,
   setOtp as storeSetOtp,
 } from '../../../store/features/authSlice';
 import { useAppDispatch } from '../../../store/hooks';
+
+import { Images } from '../../../constants';
 import showAlert from '../../../utils/showAlert';
 import styles from './styles';
 
@@ -27,6 +36,10 @@ const OtpScreen = () => {
   const [otp, setOtp] = useState<string>('');
   const [focusedIndex, setFocusedIndex] = useState(0);
   const dispatch = useAppDispatch();
+
+  const { params } = useRoute<RouteProp<AuthStackParams, 'Otp'>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
+  console.log({ params });
 
   useEffect(() => {
     if (focusedIndex === OTPInputs.length) Keyboard.dismiss();
@@ -42,6 +55,10 @@ const OtpScreen = () => {
       return showAlert('OTP Validation Error', 'Enter a valid OTP.');
     dispatch(storeSetOtp(otp));
     dispatch(setActivated(true));
+    navigation.navigate(
+      params?.screen ? params.screen : 'BottomNav',
+      params?.metadata,
+    );
   };
 
   return (

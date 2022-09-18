@@ -7,7 +7,7 @@ import BodyRegular from '../../components/common/Text/Body/BodyRegular';
 import OtherHeader from '../../components/Header/OtherHeader';
 import { COLORS } from '../../constants';
 import { AuthStackParams } from '../../navigation/AuthNavigation';
-import { HomeStackParams } from '../../navigation/AppNavigation';
+import { AppStackParams } from '../../navigation/AppNavigation';
 
 const PROFILE_OPTIONS = [
   { label: 'My wallet', screen: 'Wallet' },
@@ -19,7 +19,7 @@ const PROFILE_OPTIONS = [
 const ProfileScreen = () => {
   const navigation =
     useNavigation<
-      NativeStackNavigationProp<HomeStackParams & AuthStackParams>
+      NativeStackNavigationProp<AppStackParams & AuthStackParams>
     >();
 
   return (

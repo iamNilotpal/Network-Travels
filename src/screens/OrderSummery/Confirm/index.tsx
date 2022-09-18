@@ -11,9 +11,9 @@ import OtherHeader from '../../../components/Header/OtherHeader';
 import Logo from '../../../components/Icons/Logo/Logo';
 import LogoNameBig from '../../../components/Icons/Logo/LogoNameBig';
 import Rupee from '../../../components/Icons/Rupee';
-import { HomeStackParams } from '../../../navigation/AppNavigation';
+import { AppStackParams } from '../../../navigation/AppNavigation';
 import styles from './styles';
-import { AppStackParams } from '../../../navigation/BottomNavigation';
+import { BottomStackParams } from '../../../navigation/BottomNavigation';
 
 const OrderPaymentConfirm = () => {
   const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();

@@ -6,12 +6,11 @@ import BodyRegular from '../../components/common/Text/Body/BodyRegular';
 import User from '../../components/Icons/User';
 import X from '../../components/Icons/X';
 import { MENU_BAR_DATA } from '../../constants/menuBar';
-import { HomeStackParams } from '../../navigation/AppNavigation';
+import { AppStackParams } from '../../navigation/AppNavigation';
 import styles from './styles';
 
 const MenuBarScreen = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   return (
     <View style={styles.container}>

@@ -4,7 +4,7 @@ import React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 
 import { COLORS } from '../../../../constants';
-import { HomeStackParams } from '../../../../navigation/AppNavigation';
+import { AppStackParams } from '../../../../navigation/AppNavigation';
 import PrimaryButton from '../../Button/PrimaryButton';
 import BodyRegular from '../../Text/Body/BodyRegular';
 import HeadingBold from '../../Text/Heading/Bold';
@@ -15,8 +15,7 @@ type BookingCardProps = {
 };
 
 const BookingCard: React.FC<BookingCardProps> = ({ containerStyle = {} }) => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   return (
     <View style={[styles.container, containerStyle]}>

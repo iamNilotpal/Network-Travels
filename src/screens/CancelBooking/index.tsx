@@ -8,7 +8,7 @@ import Step3 from '../../components/CancelBooking/Step3';
 import OtherHeader from '../../components/Header/OtherHeader';
 import ArrowLeft from '../../components/Icons/ArrowLeft';
 import Progress from '../../components/Progress';
-import { AppStackParams } from '../../navigation/BottomNavigation';
+import { BottomStackParams } from '../../navigation/BottomNavigation';
 
 const COMPONENTS = {
   0: Step1,
@@ -18,7 +18,8 @@ const COMPONENTS = {
 
 const CancelBookingScreen = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<BottomStackParams>>();
   const Component = COMPONENTS[activeStep as keyof typeof COMPONENTS];
 
   return (

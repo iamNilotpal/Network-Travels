@@ -10,7 +10,7 @@ import OtherHeader from '../../components/Header/OtherHeader';
 import ArrowLeft from '../../components/Icons/ArrowLeft';
 import BookingsTab from '../../components/Tabs/BookingsTab';
 import { COLORS } from '../../constants';
-import { HomeStackParams } from '../../navigation/AppNavigation';
+import { AppStackParams } from '../../navigation/AppNavigation';
 import styles from './styles';
 
 const data = [
@@ -25,8 +25,7 @@ const data = [
 ];
 
 const PickupDropPointsScreen = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
 
   return (
     <>
@@ -54,7 +53,7 @@ const PickupDropPointsScreen = () => {
         </View>
         <View style={{ marginTop: 25 }}>
           <BodyRegular
-            text="Select dropoff point"
+            text="Select dropout point"
             textStyles={{ marginBottom: 5, fontWeight: '700' }}
           />
           <Dropdown

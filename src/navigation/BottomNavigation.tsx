@@ -1,23 +1,26 @@
 import React from 'react';
-import { Image, ImageSourcePropType, Text, View } from 'react-native';
+import { Image, ImageSourcePropType } from 'react-native';
 import {
   AnimatedTabBarNavigator,
   TabElementDisplayOptions,
 } from 'react-native-animated-nav-tab-bar';
+
 import { COLORS, Icons } from '../constants';
+
+/* ------- SCREENS ------- */
 import Bookings from '../screens/Bookings';
 import HelpSupport from '../screens/Help&Support';
 import HomeScreen from '../screens/Home';
 import ProfileScreen from '../screens/Profile';
 
-export type AppStackParams = {
+export type BottomStackParams = {
   Home: undefined;
   Bookings: undefined;
   Help: undefined;
   Profile: undefined;
 };
 
-const BottomStack = AnimatedTabBarNavigator<AppStackParams>();
+const BottomStack = AnimatedTabBarNavigator<BottomStackParams>();
 
 const BottomNavigation = () => {
   return (
