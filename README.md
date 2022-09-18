@@ -28,7 +28,6 @@ npm install
 yarn start
 
 yarn android or yarn ios
-
 ```
 
 **or**
