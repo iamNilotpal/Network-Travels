@@ -23,14 +23,16 @@ import WalletScreen from '../screens/Wallet';
 import AuthNavigation from './AuthNavigation';
 import BottomNavigation from './BottomNavigation';
 
+type FareDetail = { price: number; seats: number };
+
 export type AppStackParams = {
   Authentication: undefined;
   BottomNav: undefined;
   BusTypes: undefined;
   SeatBooking: { busData: any };
-  FareDetails: undefined;
-  PickupDrop: undefined;
-  PassengerDetails: undefined;
+  FareDetails: FareDetail;
+  PickupDrop: FareDetail;
+  PassengerDetails: FareDetail;
   OrderSummery: undefined;
   Payment: undefined;
   MenuBar: undefined;

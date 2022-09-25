@@ -3,7 +3,10 @@ import authReducer from './features/authSlice';
 import journeyReducer from './features/journeySlice';
 
 export const store = configureStore({
-  reducer: { auth: authReducer, journey: journeyReducer },
+  reducer: {
+    auth: authReducer,
+    journey: journeyReducer,
+  },
   devTools: true,
 });
 

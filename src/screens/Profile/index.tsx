@@ -9,7 +9,7 @@ import { COLORS } from '../../constants';
 import { AuthStackParams } from '../../navigation/AuthNavigation';
 import { AppStackParams } from '../../navigation/AppNavigation';
 import { useAppSelector } from '../../store/hooks';
-import { selectUser } from '../../store/features/authSlice';
+import { selectActivated, selectUser } from '../../store/features/authSlice';
 
 const PROFILE_OPTIONS = [
   { label: 'My wallet', screen: 'Wallet' },
@@ -18,26 +18,46 @@ const PROFILE_OPTIONS = [
   { label: 'Logout', screen: 'Login' },
 ];
 
+const AuthInfo = () => {
+  const isActivated = useAppSelector(selectActivated);
+  const { fullName, phoneNumber } = useAppSelector(selectUser);
+  const firstFive = phoneNumber.substring(0, 5);
+  const lastFive = phoneNumber.substring(5, phoneNumber.length);
+  const numberToShow = `${firstFive} ${lastFive}`;
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthStackParams>>();
+
+  return isActivated ? (
+    <>
+      <BodyRegular
+        textStyles={{ fontWeight: '700', marginBottom: 5 }}
+        text={fullName}
+      />
+      <BodyRegular textStyles={{ fontWeight: '700' }} text={numberToShow} />
+    </>
+  ) : (
+    <TouchableOpacity onPress={() => navigation.navigate('Registration')}>
+      <BodyRegular
+        textStyles={{ fontWeight: '700', marginBottom: 5 }}
+        text="Login / Sign-up"
+      />
+      <BodyRegular text="Login to receive our latest offers" />
+    </TouchableOpacity>
+  );
+};
+
 const ProfileScreen = () => {
   const navigation =
     useNavigation<
       NativeStackNavigationProp<AppStackParams & AuthStackParams>
     >();
-  const { fullName, phoneNumber } = useAppSelector(selectUser);
-  const firstFive = phoneNumber.substring(0, 5);
-  const lastFive = phoneNumber.substring(5, phoneNumber.length);
-  const numberToShow = `${firstFive} ${lastFive}`;
 
   return (
     <>
       <OtherHeader text="Profile" />
       <View style={styles.container}>
         <View style={styles.item}>
-          <BodyRegular
-            textStyles={{ fontWeight: '700', marginBottom: 5 }}
-            text={fullName}
-          />
-          <BodyRegular textStyles={{ fontWeight: '700' }} text={numberToShow} />
+          <AuthInfo />
         </View>
         {PROFILE_OPTIONS.map((item, i) => (
           <TouchableOpacity

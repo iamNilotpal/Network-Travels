@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleProp, ViewStyle, StyleSheet } from 'react-native';
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import ModernDatePicker, { getToday } from 'react-native-modern-datepicker';
 import { COLORS } from '../../constants';
 

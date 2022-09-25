@@ -6,7 +6,7 @@ import LogoNameSmall from '../../../Icons/Logo/LogoNameSmall';
 import BodyRegular from '../../Text/Body/BodyRegular';
 import styles from './styles';
 
-const BusCardHeader = () => {
+const BusCardHeader = ({ seats }: { seats: number }) => {
   return (
     <>
       <View style={styles.logo}>
@@ -21,7 +21,7 @@ const BusCardHeader = () => {
       </View>
       <View style={styles.seatBadge}>
         <BodyRegular
-          text="28 seats"
+          text={`${seats} seats`}
           textStyles={{ fontWeight: '700', fontSize: 10 }}
         />
       </View>

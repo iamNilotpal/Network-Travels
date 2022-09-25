@@ -18,8 +18,6 @@ import { Images } from '../../constants';
 import styles from './styles';
 
 const HomeScreen = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<{}>>();
-
   return (
     <Pressable onPress={() => Keyboard.dismiss()}>
       <HomeHeader />

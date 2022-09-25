@@ -17,7 +17,7 @@ import { AppStackParams } from '../../navigation/AppNavigation';
 import styles from './styles';
 
 const SeatBooking = () => {
-  const [selectedSeats, setSelectedSeats] = useState([]);
+  const [seats, setSelectedSeats] = useState(0);
   const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
   const {
     params: {
@@ -25,18 +25,18 @@ const SeatBooking = () => {
     },
   } = useRoute<RouteProp<AppStackParams, 'SeatBooking'>>();
 
-  const handleSeatSelect = () => {};
-
   return (
     <>
       <BustTypesHeader />
       <ScrollView
-        contentContainerStyle={{ paddingBottom: 80 }}
+        contentContainerStyle={{
+          paddingBottom: seats > 0 ? 80 : 20,
+        }}
         showsVerticalScrollIndicator={false}>
         <BookingsTab containerStyles={{ marginTop: 25 }} />
         <View style={styles.berths}>
-          <LowerBerth onSeatSelect={handleSeatSelect} />
-          <UpperBerth onSeatSelect={handleSeatSelect} />
+          <LowerBerth onSeatSelect={seat => setSelectedSeats(seats + seat)} />
+          <UpperBerth onSeatSelect={seat => setSelectedSeats(seats + seat)} />
         </View>
         <View style={styles.rest}>
           <BodyRegular
@@ -72,11 +72,16 @@ const SeatBooking = () => {
           />
         </View>
       </ScrollView>
-      {selectedSeats.length > 0 && (
+      {seats > 0 && (
         <PaymentBottomNav
-          price={100}
-          seats={3}
-          onPress={() => navigation.navigate('PickupDrop')}
+          price={seats * bus.price}
+          seats={seats}
+          onPress={() =>
+            navigation.navigate('PickupDrop', {
+              price: seats * bus.price,
+              seats,
+            })
+          }
         />
       )}
     </>

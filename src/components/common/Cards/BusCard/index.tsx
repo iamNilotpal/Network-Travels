@@ -20,7 +20,7 @@ const BusCard = (props: any) => {
         navigation.navigate('SeatBooking', { busData: { ...props } })
       }>
       <View style={styles.wrapper}>
-        <BusCardHeader />
+        <BusCardHeader seats={props.bus.availableSeats} />
         <BusCardMain {...props} />
       </View>
       <BusCardFooter />

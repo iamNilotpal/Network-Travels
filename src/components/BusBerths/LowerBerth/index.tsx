@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { COLORS } from '../../../constants';
 
@@ -11,16 +11,24 @@ import styles from './styles';
 type SeatProps = {
   text: string;
   index: number;
+  onSeatSelect: (seat: number) => void;
 };
 
-const Seat: React.FC<SeatProps> = ({ index, text }) => {
+const Seat: React.FC<SeatProps> = ({ index, text, onSeatSelect }) => {
+  const initialRenderRef = useRef(true);
   const [selected, setSelected] = useState(false);
+
+  useEffect(() => {
+    if (!initialRenderRef.current)
+      selected ? onSeatSelect(1) : onSeatSelect(-1);
+  }, [selected]);
 
   return (
     <LowerSeat
       selected={selected}
       onPress={() => {
-        setSelected(prev => !prev);
+        initialRenderRef.current = false;
+        setSelected(!selected);
       }}
       style={{
         marginBottom: 7,
@@ -40,7 +48,11 @@ const Seat: React.FC<SeatProps> = ({ index, text }) => {
   );
 };
 
-const LowerBerth = () => {
+type LowerBerthProps = {
+  onSeatSelect: (seat: any) => void;
+};
+
+const LowerBerth: React.FC<LowerBerthProps> = ({ onSeatSelect }) => {
   return (
     <View>
       <BodyRegular
@@ -54,7 +66,12 @@ const LowerBerth = () => {
         <View style={styles.seat}>
           {LOWER_BERTH.map((item, i) =>
             item.visible ? (
-              <Seat text={item.text} index={i} key={i} />
+              <Seat
+                text={item.text}
+                index={i}
+                key={i}
+                onSeatSelect={onSeatSelect}
+              />
             ) : (
               <View style={{ marginHorizontal: 13 }} key={i} />
             ),

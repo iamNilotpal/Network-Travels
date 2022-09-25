@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Pressable,
@@ -13,10 +13,17 @@ import styles from './styles';
 type SeatProps = {
   text: string;
   index: number;
+  onSeatSelect: (seat: number) => void;
 };
 
-const Seat: React.FC<SeatProps> = ({ index, text }) => {
+const Seat: React.FC<SeatProps> = ({ index, text, onSeatSelect }) => {
+  const initialRenderRef = useRef(true);
   const [selected, setSelected] = useState(false);
+
+  useEffect(() => {
+    if (!initialRenderRef.current)
+      selected ? onSeatSelect(1) : onSeatSelect(-1);
+  }, [selected]);
 
   return (
     <Pressable
@@ -24,7 +31,10 @@ const Seat: React.FC<SeatProps> = ({ index, text }) => {
         marginBottom: 5,
       }}
       key={index}
-      onPress={() => setSelected(prev => !prev)}>
+      onPress={() => {
+        initialRenderRef.current = false;
+        setSelected(prev => !prev);
+      }}>
       <ImageBackground
         source={Icons.bigSeat as ImageSourcePropType}
         style={{
@@ -45,7 +55,11 @@ const Seat: React.FC<SeatProps> = ({ index, text }) => {
   );
 };
 
-const UpperBerth = () => {
+const UpperBerth = ({
+  onSeatSelect,
+}: {
+  onSeatSelect: (seat: number) => void;
+}) => {
   return (
     <View>
       <BodyRegular
@@ -56,7 +70,12 @@ const UpperBerth = () => {
         <View style={styles.seat}>
           {UPPER_BERTH.map((item, i) =>
             item.visible ? (
-              <Seat index={i} text={item.text} key={i} />
+              <Seat
+                index={i}
+                text={item.text}
+                key={i}
+                onSeatSelect={onSeatSelect}
+              />
             ) : (
               <View style={{ marginHorizontal: 10 }} key={i} />
             ),

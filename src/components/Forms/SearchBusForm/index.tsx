@@ -20,6 +20,7 @@ import {
 } from '../../../store/features/journeySlice';
 import DatePickerIcon from '../../Icons/DatePicker';
 import DatePicker from '../../DatePicker';
+import dayjs from 'dayjs';
 
 type SearchBusFormProps = {
   containerStyles?: StyleProp<ViewStyle>;
@@ -36,12 +37,14 @@ const SearchBusForm: React.FC<SearchBusFormProps> = ({ containerStyles }) => {
 
   const handleTravelDateSelect = (date: string) => {
     setShowDeparturePicker(false);
-    dispatch(setDestination({ date }));
+    const formattedDate = dayjs(date).format('DD-MM-YYYY');
+    dispatch(setDestination({ date: formattedDate }));
   };
 
   const handleReturnDateSelect = (date: string) => {
     setShowReturnPicker(false);
-    dispatch(setStart({ date }));
+    const formattedDate = dayjs(date).format('DD-MM-YYYY');
+    dispatch(setStart({ date: formattedDate }));
   };
 
   return (

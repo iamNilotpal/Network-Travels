@@ -11,12 +11,10 @@ const BusesContainer = () => {
 
   useEffect(() => {
     if (currentBusType === 'All') return setBusesToShow(BUSES);
-
     if (currentBusType === 'AC') {
       const filteredBuses = BUSES.filter(bus => Boolean(bus.ac));
       return setBusesToShow(filteredBuses);
     }
-
     if (currentBusType === 'Morning') {
       const filteredBuses = BUSES.filter(bus => Boolean(bus.morning));
       return setBusesToShow(filteredBuses);

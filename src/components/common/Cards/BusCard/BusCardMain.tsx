@@ -50,11 +50,11 @@ const BusCardMain: React.FC<BusCardMainProps> = ({ bus }) => {
             textStyles={{ fontSize: 22 }}
           />
         </View>
-        {bus.ac_price && (
+        {bus.actualPrice && (
           <View style={[styles.rupee, { alignSelf: 'flex-end' }]}>
             <Rupee fill="gray" />
             <HeadingBold
-              text={bus.ac_price.toFixed(2)}
+              text={bus.actualPrice.toFixed(2)}
               textStyles={{ fontSize: 18, opacity: 0.5, marginLeft: 3 }}
             />
             <View style={styles.lineThrough} />

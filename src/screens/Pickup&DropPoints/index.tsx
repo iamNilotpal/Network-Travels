@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import React from 'react';
 import { View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
@@ -12,6 +12,7 @@ import BookingsTab from '../../components/Tabs/BookingsTab';
 import { COLORS } from '../../constants';
 import { AppStackParams } from '../../navigation/AppNavigation';
 import styles from './styles';
+import { AuthStackParams } from '../../navigation/AuthNavigation';
 
 const data = [
   { label: 'Item 1', value: '1' },
@@ -26,6 +27,9 @@ const data = [
 
 const PickupDropPointsScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<AppStackParams>>();
+  const {
+    params: { price, seats },
+  } = useRoute<RouteProp<AppStackParams, 'PickupDrop'>>();
 
   return (
     <>
@@ -72,9 +76,11 @@ const PickupDropPointsScreen = () => {
         </View>
       </View>
       <PaymentBottomNav
-        seats={10}
-        price={200}
-        onPress={() => navigation.navigate('PassengerDetails')}
+        seats={seats}
+        price={price}
+        onPress={() =>
+          navigation.navigate('PassengerDetails', { price, seats })
+        }
       />
     </>
   );
